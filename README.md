@@ -1,6 +1,6 @@
 # Omni-Drama-Studio
 
-Omni-Drama-Studio 是一個自動化的 AI 影片製作流水線，利用多智能體（Multi-Agent）工作流，將 SCP 基金會的文章轉換為 10-15 分鐘的電影感影片。
+Omni-Drama-Studio 是一個自動化的 AI 影片製作流水線，利用多智能體（Multi-Agent）工作流，將 SCP 基金會的文章轉換為電影感影片（影片長度可自訂，預設為 5 分鐘）。
 
 ## 核心概念
 
@@ -45,7 +45,9 @@ graph TD
 
 1.  前往本儲存庫的 **GitHub Actions** 頁面。
 2.  選擇 **Phase 1: Screenwriter** 工作流。
-3.  點擊 **Run workflow** 並輸入你想要轉換的 SCP 文章 URL（支援 `http://scp-zh-tr.wikidot.com/`）。
+3.  點擊 **Run workflow**：
+    *   輸入你想要轉換的 SCP 文章 URL（支援 `http://scp-zh-tr.wikidot.com/`）。
+    *   （可選）輸入你期望的影片最大長度（`maximum_video_duration`），單位為分鐘，預設為 5。
 4.  等待編劇完成並開立 PR 後，在 PR 留言中回覆選擇的視覺概念（例如：`@bot choose B`）。
 
 ## 技術棧
