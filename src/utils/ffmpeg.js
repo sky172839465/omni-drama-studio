@@ -6,11 +6,11 @@ import path from "path";
 const execPromise = promisify(exec);
 
 export async function processVideoClip(inputPath, outputPath, targetDuration) {
-  const { stdout } = await execPromise(`ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 ${inputPath}`);
+  const { stdout } = await execPromise(`ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "${inputPath}"`);
   const actualDuration = parseFloat(stdout.trim());
   const ratio = actualDuration / targetDuration;
 
-  const command = `ffmpeg -i ${inputPath} -y -filter:v "setpts=${1/ratio}*PTS,fps=30" -t ${targetDuration} ${outputPath}`;
+  const command = `ffmpeg -i "${inputPath}" -y -filter:v "setpts=${1/ratio}*PTS,fps=30" -t ${targetDuration} "${outputPath}"`;
   await execPromise(command);
 }
 
