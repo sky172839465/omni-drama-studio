@@ -67,9 +67,9 @@ const scriptSchema = {
   required: ["title", "acts", "global_mood"]
 };
 
-export async function generateScript(content) {
+export async function generateScript(content, maximumVideoDuration = "5") {
   const prompt = `
-    Transform the following SCP Foundation article content into a cinematic storyboard script for a 10-15 minute video.
+    Transform the following SCP Foundation article content into a cinematic storyboard script for a video up to ${maximumVideoDuration} minutes.
     The script should be divided into Acts (approx 2-3 minutes each).
     Each clip should be between 4 to 8 seconds.
     For each clip, provide:
@@ -89,9 +89,9 @@ export async function generateScript(content) {
   return await askGeminiStructured(prompt, scriptSchema);
 }
 
-export async function runScreenwriter(url) {
+export async function runScreenwriter(url, maximumVideoDuration = "5") {
   const content = await crawlSCP(url);
-  const script = await generateScript(content);
+  const script = await generateScript(content, maximumVideoDuration);
 
   const scpIdMatch = url.match(/scp-([a-z0-9-]+)/i);
   const scpId = scpIdMatch ? scpIdMatch[0].toLowerCase() : "unknown";

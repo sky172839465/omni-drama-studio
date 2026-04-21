@@ -6,6 +6,10 @@ on:
       scp_url:
         description: "SCP Article URL (e.g., http://scp-zh-tr.wikidot.com/scp-001)"
         required: true
+      maximum_video_duration:
+        description: "Maximum video duration in minutes"
+        required: false
+        default: '5'
 
 jobs:
   screenwrite:
@@ -36,8 +40,9 @@ jobs:
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
           SCP_URL: ${{ github.event.inputs.scp_url }}
+          MAXIMUM_VIDEO_DURATION: ${{ github.event.inputs.maximum_video_duration }}
         run: |
-          node src/scripts/run-screenwriter.js "$SCP_URL" > output.json
+          node src/scripts/run-screenwriter.js "$SCP_URL" "$MAXIMUM_VIDEO_DURATION" > output.json
           echo "STORY_ID=$(jq -r .storyId < output.json)" >> $GITHUB_ENV
 
       - name: Create Pull Request
