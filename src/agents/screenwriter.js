@@ -121,8 +121,19 @@ export async function runScreenwriter(url, maximumVideoDuration = "5") {
 
   const scpIdMatch = url.match(/scp-([a-z0-9-]+)/i);
   const scpId = scpIdMatch ? scpIdMatch[0].toLowerCase() : "unknown";
-  const slugifiedTitle = slugify(script.title, { lower: true, strict: true });
-  const storyId = `${scpId}-${slugifiedTitle}`;
+  const slugifiedTitle = slugify(script.title || "", { lower: true, strict: true });
+
+  const now = new Date();
+  const timestamp = now.getFullYear().toString() +
+    String(now.getMonth() + 1).padStart(2, '0') +
+    String(now.getDate()).padStart(2, '0') +
+    String(now.getHours()).padStart(2, '0') +
+    String(now.getMinutes()).padStart(2, '0') +
+    String(now.getSeconds()).padStart(2, '0');
+
+  const storyId = slugifiedTitle
+    ? `${scpId}-${slugifiedTitle}-${timestamp}`
+    : `${scpId}-${timestamp}`;
 
   const storyDir = path.join("drama", storyId);
   await fs.mkdir(storyDir, { recursive: true });
