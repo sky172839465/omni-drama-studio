@@ -1,23 +1,23 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 export async function askGemini(prompt, modelName = "gemini-1.5-pro") {
-  const model = genAI.getGenerativeModel({ model: modelName });
-  const result = await model.generateContent(prompt);
-  const response = await result.response;
-  return response.text();
+  const response = await ai.models.generateContent({
+    model: modelName,
+    contents: prompt,
+  });
+  return response.text;
 }
 
 export async function askGeminiStructured(prompt, schema, modelName = "gemini-1.5-pro") {
-  const model = genAI.getGenerativeModel({
+  const response = await ai.models.generateContent({
     model: modelName,
-    generationConfig: {
+    contents: prompt,
+    config: {
       responseMimeType: "application/json",
       responseSchema: schema,
     },
   });
-  const result = await model.generateContent(prompt);
-  const response = await result.response;
-  return JSON.parse(response.text());
+  return JSON.parse(response.text);
 }

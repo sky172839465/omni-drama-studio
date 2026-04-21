@@ -12,13 +12,24 @@ export async function crawlSCP(url) {
   // npm install -g agent-browser && agent-browser install
   // Command: agent-browser open <url> --snapshot -i
   console.log(`Crawling SCP: ${url}`);
-  try {
-    const { stdout } = await execPromise(`agent-browser open "${url}" snapshot -i`);
-    return stdout;
-  } catch (error) {
-    console.error("Crawl error:", error);
-    // Fallback or retry logic could go here
-    throw error;
+  const maxRetries = 3;
+  let attempt = 0;
+
+  while (attempt < maxRetries) {
+    try {
+      const { stdout } = await execPromise(`agent-browser open "${url}" snapshot -i`);
+      return stdout;
+    } catch (error) {
+      attempt++;
+      console.error(`Crawl error (attempt ${attempt}/${maxRetries}):`, error);
+      if (attempt >= maxRetries) {
+        throw error;
+      }
+      // Exponential backoff: 1s, 2s, 4s...
+      const delay = Math.pow(2, attempt - 1) * 1000;
+      console.log(`Retrying in ${delay}ms...`);
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
   }
 }
 

@@ -2,20 +2,74 @@ import { uploadToR2, downloadFromR2, getSignedUrlForR2 } from "../utils/r2.js";
 import { askGemini } from "../utils/gemini.js";
 import fs from "fs/promises";
 import path from "path";
+import { GoogleGenAI } from "@google/genai";
+import { exec } from "child_process";
+import { promisify } from "util";
+import os from "os";
 
-/**
- * Mock Veo 3.1 Lite call
- */
+const execPromise = promisify(exec);
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+
 export async function generateClip(storyId, actNumber, clipIndex, scriptClip, config, lastFrameKey) {
   console.log(`Generating Act ${actNumber} Clip ${clipIndex} for ${storyId}`);
 
   const appearancePrompt = config.appearance_seeds.join(", ");
-  const fullPrompt = `${config.global_mood}. ${scriptClip.visual_description}. Featuring: ${scriptClip.key_object}. Appearance traits: ${appearancePrompt}. Cinematic, 4k.`;
+  const fullPrompt = `${config.global_mood}. ${scriptClip.visual_description}. Featuring: ${scriptClip.key_object}. Appearance traits: ${appearancePrompt}. Cinematic.`;
 
   const clipKey = `drama/${storyId}/clips/act_${actNumber}_clip_${clipIndex}.mp4`;
   const nextFrameKey = `drama/${storyId}/frames/act_${actNumber}_frame_${clipIndex}.png`;
 
   console.log(`Prompt: ${fullPrompt}`);
+
+  let generateArgs = {
+    model: "veo-3.1-lite-generate-preview",
+    prompt: fullPrompt,
+  };
+
+  if (lastFrameKey) {
+    console.log(`Using last frame from ${lastFrameKey}`);
+    const lastFrameRes = await downloadFromR2(lastFrameKey);
+    const lastFrameBuffer = Buffer.isBuffer(lastFrameRes) ? lastFrameRes : Buffer.from(await lastFrameRes.transformToByteArray());
+    // Convert Buffer to Uint8Array for the image parameter
+    generateArgs.image = {
+      mimeType: "image/png",
+      imageBytes: new Uint8Array(lastFrameBuffer)
+    };
+  }
+
+  let operation = await ai.models.generateVideos(generateArgs);
+
+  while (!operation.done) {
+    console.log(`Waiting for video generation to complete... (Act ${actNumber} Clip ${clipIndex})`);
+    await new Promise((resolve) => setTimeout(resolve, 10000));
+    operation = await ai.operations.getVideosOperation({
+      operation: operation,
+    });
+  }
+
+  const generatedVideo = operation.response.generatedVideos[0].video;
+  const tmpVideoPath = path.join(os.tmpdir(), `act_${actNumber}_clip_${clipIndex}.mp4`);
+
+  await ai.files.download({
+    file: generatedVideo,
+    downloadPath: tmpVideoPath,
+  });
+
+  const videoBuffer = await fs.readFile(tmpVideoPath);
+  await uploadToR2(clipKey, videoBuffer, "video/mp4");
+
+  // Extract last frame for next generation
+  const tmpFramePath = path.join(os.tmpdir(), `act_${actNumber}_frame_${clipIndex}.png`);
+  // -sseof -0.1 seeks to end of file minus 0.1 seconds, -vframes 1 gets 1 frame
+  await execPromise(`ffmpeg -sseof -0.1 -i "${tmpVideoPath}" -update 1 -q:v 1 "${tmpFramePath}" -y`);
+
+  const frameBuffer = await fs.readFile(tmpFramePath);
+  await uploadToR2(nextFrameKey, frameBuffer, "image/png");
+
+  // Cleanup tmp files
+  await fs.unlink(tmpVideoPath);
+  await fs.unlink(tmpFramePath);
+
   return { clipKey, nextFrameKey };
 }
 
