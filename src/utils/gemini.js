@@ -2,7 +2,7 @@ import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
-export async function askGemini(prompt, modelName = "gemini-1.5-pro") {
+export async function askGemini(prompt, modelName = "gemini-2.5-flash") {
   const response = await ai.models.generateContent({
     model: modelName,
     contents: prompt,
@@ -10,7 +10,7 @@ export async function askGemini(prompt, modelName = "gemini-1.5-pro") {
   return response.text;
 }
 
-export async function askGeminiStructured(prompt, schema, modelName = "gemini-1.5-pro") {
+export async function askGeminiStructured(prompt, schema, modelName = "gemini-2.5-flash") {
   const response = await ai.models.generateContent({
     model: modelName,
     contents: prompt,
