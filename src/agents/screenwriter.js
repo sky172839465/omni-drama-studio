@@ -4,14 +4,40 @@ import { promisify } from "util";
 import fs from "fs/promises";
 import path from "path";
 import slugify from "slugify";
+import fetch from "node-fetch";
+import * as cheerio from "cheerio";
 
 const execPromise = promisify(exec);
 
 export async function crawlSCP(url) {
-  // Use agent-browser to get a snapshot of the page
-  // npm install -g agent-browser && agent-browser install
-  // Command: agent-browser open <url> --snapshot -i
   console.log(`Crawling SCP: ${url}`);
+
+  if (url.startsWith("http://")) {
+    console.log("URL is HTTP. Using fetch+cheerio as fallback to prevent redirect loops.");
+    const maxRetries = 3;
+    let attempt = 0;
+    while (attempt < maxRetries) {
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        const html = await res.text();
+        const $ = cheerio.load(html);
+        return $('#page-content').text().trim();
+      } catch (error) {
+        attempt++;
+        console.error(`Fetch error (attempt ${attempt}/${maxRetries}):`, error);
+        if (attempt >= maxRetries) {
+          throw error;
+        }
+        const delay = Math.pow(2, attempt - 1) * 1000;
+        console.log(`Retrying in ${delay}ms...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+      }
+    }
+  }
+
+  // Use agent-browser for HTTPS to get a snapshot of the page
+  // Command: agent-browser open <url> --snapshot -i
   const maxRetries = 3;
   let attempt = 0;
 
