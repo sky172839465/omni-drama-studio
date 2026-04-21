@@ -10,10 +10,10 @@ import * as cheerio from "cheerio";
 const execPromise = promisify(exec);
 
 export async function crawlSCP(url) {
-  console.log(`Crawling SCP: ${url}`);
+  console.error(`Crawling SCP: ${url}`);
 
   if (url.startsWith("http://")) {
-    console.log("URL is HTTP. Using fetch+cheerio as fallback to prevent redirect loops.");
+    console.error("URL is HTTP. Using fetch+cheerio as fallback to prevent redirect loops.");
     const maxRetries = 3;
     let attempt = 0;
     while (attempt < maxRetries) {
@@ -30,7 +30,7 @@ export async function crawlSCP(url) {
           throw error;
         }
         const delay = Math.pow(2, attempt - 1) * 1000;
-        console.log(`Retrying in ${delay}ms...`);
+        console.error(`Retrying in ${delay}ms...`);
         await new Promise(resolve => setTimeout(resolve, delay));
       }
     }
@@ -53,7 +53,7 @@ export async function crawlSCP(url) {
       }
       // Exponential backoff: 1s, 2s, 4s...
       const delay = Math.pow(2, attempt - 1) * 1000;
-      console.log(`Retrying in ${delay}ms...`);
+      console.error(`Retrying in ${delay}ms...`);
       await new Promise(resolve => setTimeout(resolve, delay));
     }
   }
