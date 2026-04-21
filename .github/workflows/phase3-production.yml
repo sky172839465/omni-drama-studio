@@ -1,0 +1,101 @@
+name: "Phase 3: Production Loop"
+
+on:
+  repository_dispatch:
+    types: [continue-production]
+  issue_comment:
+    types: [created]
+
+jobs:
+  handle-selection:
+    if: contains(github.event.comment.body, '@bot choose')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Parse Selection
+        run: |
+          STORY_ID=$(echo "${{ github.event.issue.title }}" | sed 's/Production: //')
+          CHOICE=$(echo "${{ github.event.comment.body }}" | grep -oP '@bot choose \K[A-C]')
+          echo "STORY_ID=$STORY_ID" >> $GITHUB_ENV
+          echo "CHOICE=$CHOICE" >> $GITHUB_ENV
+
+      - name: Save Config
+        run: |
+          node -e "
+            import fs from 'fs';
+            const storyId = process.env.STORY_ID;
+            const choice = process.env.CHOICE;
+            const design = JSON.parse(fs.readFileSync('drama/' + storyId + '/design.json', 'utf8'));
+            const selected = design.concepts.find(c => c.id === choice);
+            const script = JSON.parse(fs.readFileSync('drama/' + storyId + '/script.json', 'utf8'));
+            const config = { ...selected, global_mood: script.global_mood };
+            fs.writeFileSync('drama/' + storyId + '/config.json', JSON.stringify(config, null, 2));
+          "
+      - name: Commit Config
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "chore: set visual config for ${{ env.STORY_ID }}"
+          git push
+
+      - name: Trigger Production
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          event-type: continue-production
+          client-payload: '{"storyId": "${{ env.STORY_ID }}"}'
+
+  director-loop:
+    if: github.event_name == 'repository_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+      - name: Install
+        run: npm install
+      - name: Director Action
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+        run: |
+          STORY_ID=${{ github.event.client_payload.storyId }}
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git pull --rebase
+          node src/index.js "$STORY_ID" > loop_res.json
+
+      - name: Commit Progress
+        run: |
+          git add .
+          git commit -m "docs: update production checklist" || exit 0
+          git push
+
+      - name: Recursive Trigger
+        if: success()
+        run: |
+          # The loop script (index.js) doesn't output JSON yet, but we'll fix it or just check checklist
+          # For now, let's assume if it finished successfully, we check if more work is needed
+          STORY_ID=${{ github.event.client_payload.storyId }}
+          if grep -q "- \[ \]" drama/$STORY_ID/checklist.md; then
+            curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github.v3+json" \
+              https://api.github.com/repos/${{ github.repository }}/dispatches \
+              -d "{\"event_type\": \"continue-production\", \"client_payload\": {\"storyId\": \"$STORY_ID\"}}"
+          else
+            curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github.v3+json" \
+              https://api.github.com/repos/${{ github.repository }}/dispatches \
+              -d "{\"event_type\": \"finalize-production\", \"client_payload\": {\"storyId\": \"$STORY_ID\"}}"
+          fi

@@ -1,0 +1,55 @@
+name: "Phase 1: Screenwriter"
+
+on:
+  workflow_dispatch:
+    inputs:
+      scp_url:
+        description: "SCP Article URL (e.g., http://scp-zh-tr.wikidot.com/scp-001)"
+        required: true
+
+jobs:
+  screenwrite:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          npm install
+          sudo npm install -g agent-browser
+          agent-browser install
+
+      - name: Run Screenwriter Agent
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+          SCP_URL: ${{ github.event.inputs.scp_url }}
+        run: |
+          node src/scripts/run-screenwriter.js "$SCP_URL" > output.json
+          echo "STORY_ID=$(jq -r .storyId < output.json)" >> $GITHUB_ENV
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: initialize story ${{ env.STORY_ID }}"
+          branch: "story/${{ env.STORY_ID }}"
+          title: "Production: ${{ env.STORY_ID }}"
+          body: |
+            New story production initiated for ${{ github.event.inputs.scp_url }}.
+
+            Please review the `script.json` and `checklist.md` in the `drama/${{ env.STORY_ID }}` directory.
+
+            Next Step: Character Designer will post visual concepts below.

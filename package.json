@@ -1,0 +1,21 @@
+{
+  "name": "omni-drama-studio",
+  "version": "1.0.0",
+  "description": "An automated AI video production pipeline for SCP articles",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@aws-sdk/client-s3": "^3.714.0",
+    "@aws-sdk/lib-storage": "^3.714.0",
+    "agent-browser": "^0.13.0",
+    "slugify": "^1.6.6",
+    "dotenv": "^16.4.7"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
