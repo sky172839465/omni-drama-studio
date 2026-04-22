@@ -98,6 +98,9 @@ export async function generateScript(content, maximumVideoDuration = "5") {
     Transform the following SCP Foundation article content into a cinematic storyboard script for a video up to ${maximumVideoDuration} minutes.
     The script should be divided into Acts (approx 2-3 minutes each).
     Each clip should be between 4 to 8 seconds.
+    When generating videos, pay attention to continuity. From the second clip onward, each clip may continue directly from the previous clip’s ending state.
+    Therefore, when clips belong to the same scene or act, ensure visual and narrative continuity by explicitly indicating where the next clip starts from (e.g., character position, action state, camera angle, or environmental conditions carried over from the previous clip).
+    However, if the story contains multiple distinct scenes or acts, continuity between those scenes is not required. In that case, each scene can be treated independently without referencing the previous ending state.
     For each clip, provide:
     - timestamp: Current time in the video (MM:SS)
     - duration: Exact duration in seconds (4.0 to 8.0)
