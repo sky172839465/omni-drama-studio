@@ -13,11 +13,11 @@ jobs:
     if: startsWith(github.head_ref, 'story/')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 'lts/*'
           cache: 'npm'
       - name: Install
         run: npm install
@@ -29,21 +29,17 @@ jobs:
           node src/scripts/run-designer.js "$STORY_ID" > design_output.json
 
       - name: Post Comment
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{ secrets.GH_TOKEN }}
-          script: |
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          node -e "
             const fs = require('fs');
             const design = JSON.parse(fs.readFileSync('design_output.json', 'utf8'));
-            let body = "## Visual Concepts Proposed\n\n";
+            let body = '## Visual Concepts Proposed\n\n';
             design.concepts.forEach(c => {
-              body += `### Concept ${c.id}\n${c.description}\n**Traits:** ${c.appearance_seeds.join(', ')}\n\n`;
+              body += \`### Concept \${c.id}\n\${c.description}\n**Traits:** \${c.appearance_seeds.join(', ')}\n\n\`;
             });
-            body += "\n**Please reply with `@bot choose [A/B/C]` to proceed.**";
-
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: body
-            });
+            body += '\n**Please reply with \`@bot choose [A/B/C]\` to proceed.**';
+            fs.writeFileSync('comment_body.md', body);
+          "
+          gh issue comment ${{ github.event.issue.number || github.event.pull_request.number }} --body-file comment_body.md

@@ -18,12 +18,12 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - name: Setup Node.js 22
-        uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 'lts/*'
           cache: 'npm'
 
       - name: Install dependencies
@@ -46,15 +46,21 @@ jobs:
           echo "STORY_ID=$(jq -r .storyId < output.json)" >> $GITHUB_ENV
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-          commit-message: "chore: initialize story ${{ env.STORY_ID }}"
-          branch: "story/${{ env.STORY_ID }}"
-          title: "Production: ${{ env.STORY_ID }}"
-          body: |
-            New story production initiated for ${{ github.event.inputs.scp_url }}.
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git checkout -b "story/${{ env.STORY_ID }}"
+          git add .
+          git commit -m "chore: initialize story ${{ env.STORY_ID }}"
+          git push -u origin "story/${{ env.STORY_ID }}"
+          gh pr create \
+            --title "Production: ${{ env.STORY_ID }}" \
+            --body "New story production initiated for ${{ github.event.inputs.scp_url }}.
 
-            Please review the `script.json` and `checklist.md` in the `drama/${{ env.STORY_ID }}` directory.
+            Please review the \`script.json\` and \`checklist.md\` in the \`drama/${{ env.STORY_ID }}\` directory.
 
-            Next Step: Character Designer will post visual concepts below.
+            Next Step: Character Designer will post visual concepts below." \
+            --head "story/${{ env.STORY_ID }}" \
+            --base main
