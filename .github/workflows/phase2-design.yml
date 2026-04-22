@@ -4,14 +4,14 @@ on:
   pull_request:
     types: [opened]
 
+permissions:
+  pull-requests: write
+  issues: write
+
 jobs:
   design:
     if: startsWith(github.head_ref, 'story/')
-    permissions:
-      pull-requests: write
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node
