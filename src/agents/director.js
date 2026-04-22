@@ -30,10 +30,11 @@ export async function generateClip(storyId, actNumber, clipIndex, scriptClip, co
     console.log(`Using last frame from ${lastFrameKey}`);
     const lastFrameRes = await downloadFromR2(lastFrameKey);
     const arrayBuffer = await lastFrameRes.transformToByteArray();
+    const base64 = Buffer.from(arrayBuffer).toString("base64");
     // Convert Buffer to Uint8Array for the image parameter
     generateArgs.image = {
       mimeType: "image/png",
-      imageBytes: new Uint8Array(arrayBuffer)
+      imageBytes: base64
     };
   }
 
