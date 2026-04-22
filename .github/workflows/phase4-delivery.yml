@@ -13,6 +13,8 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 'lts/*'
+      - name: Setup FFmpeg
+        uses: FedericoCarboni/setup-ffmpeg@v3
       - name: Install dependencies
         run: npm install
       - name: Final Assembly
