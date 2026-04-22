@@ -42,7 +42,7 @@ export async function generateClip(storyId, actNumber, clipIndex, scriptClip, co
 
   while (!operation.done) {
     console.log(`Waiting for video generation to complete... (Act ${actNumber} Clip ${clipIndex})`);
-    await new Promise((resolve) => setTimeout(resolve, 10000));
+    await new Promise((resolve) => setTimeout(resolve, 30_000));
     operation = await ai.operations.getVideosOperation({
       operation: operation,
     });
