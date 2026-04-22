@@ -15,6 +15,10 @@ jobs:
     if: contains(github.event.comment.body, 'omni-drama-studio choose')
     runs-on: ubuntu-latest
     steps:
+      - name: Add reaction
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: gh api -X POST /repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions -f content='eyes'
       - uses: actions/checkout@v5
       - name: Setup Node
         uses: actions/setup-node@v6
