@@ -22,7 +22,7 @@ export async function generateClip(storyId, actNumber, clipIndex, scriptClip, co
   console.log(`Prompt: ${fullPrompt}`);
 
   let generateArgs = {
-    model: "veo-3.1-lite-generate-001",
+    model: "veo-3.1-lite-generate-preview",
     prompt: fullPrompt,
   };
 
