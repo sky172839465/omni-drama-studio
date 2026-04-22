@@ -10,6 +10,14 @@ import os from "os";
 const execPromise = promisify(exec);
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
+async function streamToBuffer(stream) {
+  const chunks = [];
+  for await (const chunk of stream) {
+    chunks.push(typeof chunk === "string" ? Buffer.from(chunk) : chunk);
+  }
+  return Buffer.concat(chunks);
+}
+
 export async function generateClip(storyId, actNumber, clipIndex, scriptClip, config, lastFrameKey) {
   console.log(`Generating Act ${actNumber} Clip ${clipIndex} for ${storyId}`);
 
@@ -29,11 +37,11 @@ export async function generateClip(storyId, actNumber, clipIndex, scriptClip, co
   if (lastFrameKey) {
     console.log(`Using last frame from ${lastFrameKey}`);
     const lastFrameRes = await downloadFromR2(lastFrameKey);
-    const lastFrameBuffer = Buffer.isBuffer(lastFrameRes) ? lastFrameRes : Buffer.from(await lastFrameRes.transformToByteArray());
+    const buffer = await streamToBuffer(lastFrameRes);
     // Convert Buffer to Uint8Array for the image parameter
     generateArgs.image = {
       mimeType: "image/png",
-      imageBytes: new Uint8Array(lastFrameBuffer)
+      imageBytes: new Uint8Array(buffer)
     };
   }
 
