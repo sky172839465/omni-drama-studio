@@ -10,7 +10,7 @@ const designerSchema = {
       items: {
         type: "object",
         properties: {
-          id: { type: "string" },
+          id: { type: "string", enum: ["A", "B", "C"] },
           description: { type: "string" },
           prompt: { type: "string" },
           appearance_seeds: {
