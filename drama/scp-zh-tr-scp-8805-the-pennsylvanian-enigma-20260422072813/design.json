@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    {
+      "id": "A",
+      "description": "A horrifying, biomechanical aberration, a twisted fusion of deer and human, emerging from a natural form. It should evoke uncanny valley dread, embodying the central enigma.",
+      "prompt": "Horrifying close-up of SCP-8805, a grotesque entity emerging from a contorting pregnant doe. Its body is a nightmarish fusion of pale, stretched human skin and mottled deer hide. One side of its face is a distorted human head with vacant, wide eyes, partially obscured by antlers growing unnaturally from its skull. The other side remains deer-like, but with a vacant, decaying look. A pale, emaciated human arm, severed at the shoulder, protrudes awkwardly from its ribcage, dripping dark ichor onto the snow-covered forest floor. The forest in the background is blurred, desaturated, and cold, emphasizing the abomination in the foreground. Extreme detail, hyperrealistic, unsettling lighting, depth of field, cinematic, ominous.",
+      "appearance_seeds": [
+        "Fleshy human arm protruding from doe's ribcage",
+        "Distorted human head fused with deer face",
+        "Unnatural antlers growing from human skull",
+        "Pale, stretched skin against mottled deer hide",
+        "Vacant, wide eyes (human) and decaying deer eye"
+      ]
+    },
+    {
+      "id": "B",
+      "description": "A rugged, despairing hunter, lost and terrified in the bleak Pennsylvanian winter forest, carrying the weight of the ominous events.",
+      "prompt": "Full shot of a lone hunter, mid-40s, male, standing in a snow-covered, desolate Pennsylvanian forest. He is rugged, unshaven, wearing a dirty, tattered hunting jacket in muted greens and browns, a worn beanie, and heavy boots. His shoulders are slumped, face etched with despair and fear, eyes wide and haunted, looking off into the distance. A hunting rifle hangs loosely in his gloved hand. The forest is dense with bare trees, deep shadows, and a pervasive, cold mist. Desaturated color palette, emphasizing cool blues, grays, and muted earth tones. Deep focus, cinematic, oppressive atmosphere, hyperrealistic, volumetric fog, melancholic.",
+      "appearance_seeds": [
+        "Haunted, wide eyes filled with despair",
+        "Tattered, mud-stained hunting jacket",
+        "Unshaven, gaunt face",
+        "Heavy, snow-dusted hunting rifle",
+        "Slumped posture of deep exhaustion and fear"
+      ]
+    },
+    {
+      "id": "C",
+      "description": "A sterile, high-tech Foundation control room with a glowing, ominous database interface, conveying the clinical yet terrifying nature of containment.",
+      "prompt": "Close-up of a dimly lit, high-tech Foundation control room. The central focus is a large, holographic display screen showing a map of a snow-covered Pennsylvanian forest with multiple ominous red markers and alert symbols. The screen emits a stark, sterile white and critical red glow, casting unsettling reflections on the face of an unseen Foundation technician (only hands or silhouette visible). Key data points and redacted text are visible on the interface. The background is blurred, showing banks of monitors displaying static or infrared footage. The mood is clinical, tense, and deeply unsettling. Sharp focus on the screen, depth of field, cyber-gothic aesthetic, cold blues and grays dominating the environment with stark white and red highlights from the display, sterile.",
+      "appearance_seeds": [
+        "Holographic display with red alert markers",
+        "Stark white and red glow illuminating a dark room",
+        "Gloved hands hovering over a high-tech keyboard",
+        "Clinical, minimalist console design",
+        "Redacted text and data scrolling on screen"
+      ]
+    }
+  ]
+}
