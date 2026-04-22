@@ -48,7 +48,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
           commit-message: "chore: initialize story ${{ env.STORY_ID }}"
           branch: "story/${{ env.STORY_ID }}"
           title: "Production: ${{ env.STORY_ID }}"
