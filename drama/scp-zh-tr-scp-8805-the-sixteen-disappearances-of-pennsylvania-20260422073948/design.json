@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    {
+      "id": "A",
+      "description": "The central anomaly, a pregnant doe undergoing a horrifying, unnatural birthing process, merging deer and human anatomy into a grotesque, disturbing entity.",
+      "prompt": "A wide shot of a pregnant doe standing unnaturally still in a desolate, snow-covered forest at dusk. Its hindquarters are grossly expanded, pulsing with visible veins, and a dark, slick human arm and a partially emerged human head protrude from the birth canal. The doe's eyes are wide, blank, and completely black, reflecting no light. The scene is dominated by desaturated cool tones, deep, oppressive shadows, and an unsettlingly clinical horror atmosphere. Extreme detail on the texture of the deer fur and the glistening, unnatural human parts.",
+      "appearance_seeds": [
+        "Grossly expanded, pulsating deer hindquarters",
+        "Partially emerged, slick human body parts (head, arm)",
+        "Doe's wide, vacant, completely black eyes",
+        "Matted, unnaturally dark, wet fur around hindquarters",
+        "Slightly bowed, unnervingly still deer posture"
+      ]
+    },
+    {
+      "id": "B",
+      "description": "A depiction of the victims, either in a moment of existential dread before their disappearance or as a discovered corpse, emphasizing the bleak and final outcome of their encounter.",
+      "prompt": "A close-up of a partially decomposed human hand and forearm of Asher Hall, lying half-buried in disturbed snow and dead leaves on the floor of a desolate, dense forest. The skin is pallid and waxy, with visible signs of decay, and tattered remnants of a mud-stained hunting glove still cling to the wrist. Deep, dark shadows are cast by the surrounding pine trees, and the overall color palette is desaturated and cold, evoking profound dread and clinical detachment. Focus on the textures of the decaying flesh against the cold, indifferent forest floor.",
+      "appearance_seeds": [
+        "Pale, waxy, decomposed skin on limbs",
+        "Tattered, mud-stained hunting glove",
+        "Contorted, unnaturally stiff digits",
+        "Pallid, ash-like skin tone",
+        "Surrounded by undisturbed, silent natural elements (snow, leaves)"
+      ]
+    },
+    {
+      "id": "C",
+      "description": "Focuses on the vast, indifferent natural environment as a character, juxtaposed with the clinical, futile efforts of human investigation, highlighting the ominous and detached horror.",
+      "prompt": "An aerial shot looking directly down into an expansive, dense forest canopy in Pennsylvania, dominated by desaturated cool tones of dark green and grey. Deep, oppressive shadows cast by the thick foliage cover most of the scene. In a small, circular clearing, a lone SCP Foundation field investigator in a muted, functional uniform (back to viewer) is meticulously examining a brightly lit, high-tech GPS triangulation screen on a tripod. Faint, broken yellow police tape is barely visible near the edge of the clearing. The image emphasizes the overwhelming scale of nature against the precise, yet ultimately vulnerable, human endeavor.",
+      "appearance_seeds": [
+        "Vast, desaturated cool-toned forest canopy",
+        "Deep, oppressive shadows covering most of the scene",
+        "Gleaming, technical SCP Foundation equipment",
+        "Faint, tattered yellow police tape",
+        "Sense of isolation and insignificance of human presence"
+      ]
+    }
+  ]
+}
