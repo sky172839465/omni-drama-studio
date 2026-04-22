@@ -20,7 +20,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: gh api -X POST /repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions -f content='eyes'
       - name: Get Story ID
-        run: echo "STORY_ID=$(echo '${{ github.event.issue.title }}' | sed 's/Production: //')" >> $GITHUB_ENV
+        run: |
+          STORY_ID=$(printf "%s" "${{ github.event.issue.title }}" | sed 's/^Production: //')
+          echo "STORY_ID=$STORY_ID" >> "$GITHUB_ENV"
       - uses: actions/checkout@v5
         with:
           ref: story/${{ env.STORY_ID }}
