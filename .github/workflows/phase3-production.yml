@@ -61,19 +61,14 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           STORY_ID: ${{ env.STORY_ID }}
         run: |
-          gh api \
+          payload=$(jq -n --arg storyId "$STORY_ID" \
+            '{event_type:"continue-production", client_payload:{storyId:$storyId}}')
+          echo "$payload" | gh api \
             --method POST \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             /repos/${{ github.repository }}/dispatches \
-            --input - <<EOF
-            {
-              "event_type": "continue-production",
-              "client_payload": {
-                "storyId": "$STORY_ID"
-              }
-            }
-            EOF
+            --input -
 
   director-loop:
     if: github.event_name == 'repository_dispatch'
@@ -117,32 +112,20 @@ jobs:
           # The loop script (index.js) doesn't output JSON yet, but we'll fix it or just check checklist
           # For now, let's assume if it finished successfully, we check if more work is needed
           STORY_ID=${{ github.event.client_payload.storyId }}
+          payload=$(jq -n --arg storyId "$STORY_ID" \
+            '{event_type:"continue-production", client_payload:{storyId:$storyId}}')
           if grep -q "- \[ \]" drama/$STORY_ID/checklist.md; then
-            gh api \
+            echo "$payload" | gh api \
               --method POST \
               -H "Accept: application/vnd.github+json" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
               /repos/${{ github.repository }}/dispatches \
-              --input - <<EOF
-              {
-                "event_type": "continue-production",
-                "client_payload": {
-                  "storyId": "$STORY_ID"
-                }
-              }
-              EOF
+              --input -
           else
-            gh api \
+            echo "$payload" | gh api \
               --method POST \
               -H "Accept: application/vnd.github+json" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
               /repos/${{ github.repository }}/dispatches \
-              --input - <<EOF
-              {
-                "event_type": "continue-production",
-                "client_payload": {
-                  "storyId": "$STORY_ID"
-                }
-              }
-              EOF
+              --input -
           fi
