@@ -1,0 +1,13 @@
+{
+  "id": "A",
+  "description": "A weary and determined detective, embodying the relentless human struggle against an incomprehensible horror, marked by fatigue and a somber resolve.",
+  "prompt": "A close-up portrait of a grizzled, middle-aged male detective. His face is etched with fatigue and concern, sharp eyes squinting slightly, illuminated by the cold, diffused light of an overcast day. He wears a rumpled, dark trench coat and a tie slightly askew. The background is a blurred, desaturated forest canopy. The global mood is eerie, unsettling, with low saturation, emphasizing cold blues and deep greens.",
+  "appearance_seeds": [
+    "grizzled facial hair",
+    "worn trench coat",
+    "tired, sharp eyes",
+    "furrowed brow",
+    "cold, muted color palette"
+  ],
+  "global_mood": "Eerie, unsettling, and mysterious with an underlying tone of body horror and dread. Emphasize cold blues, deep greens, and stark contrasts. Overcast lighting, low saturation."
+}
