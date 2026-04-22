@@ -1,0 +1,13 @@
+{
+  "id": "A",
+  "description": "A horrifying, biomechanical aberration, a twisted fusion of deer and human, emerging from a natural form. It should evoke uncanny valley dread, embodying the central enigma.",
+  "prompt": "Horrifying close-up of SCP-8805, a grotesque entity emerging from a contorting pregnant doe. Its body is a nightmarish fusion of pale, stretched human skin and mottled deer hide. One side of its face is a distorted human head with vacant, wide eyes, partially obscured by antlers growing unnaturally from its skull. The other side remains deer-like, but with a vacant, decaying look. A pale, emaciated human arm, severed at the shoulder, protrudes awkwardly from its ribcage, dripping dark ichor onto the snow-covered forest floor. The forest in the background is blurred, desaturated, and cold, emphasizing the abomination in the foreground. Extreme detail, hyperrealistic, unsettling lighting, depth of field, cinematic, ominous.",
+  "appearance_seeds": [
+    "Fleshy human arm protruding from doe's ribcage",
+    "Distorted human head fused with deer face",
+    "Unnatural antlers growing from human skull",
+    "Pale, stretched skin against mottled deer hide",
+    "Vacant, wide eyes (human) and decaying deer eye"
+  ],
+  "global_mood": "Ominous, clinical, and deeply unsettling, with a pervasive sense of dread and existential horror. The color palette will be desaturated, emphasizing cool blues, grays, and muted earth tones for the forest, contrasting with stark, sterile whites and reds for Foundation interfaces and critical data. Shadows will be deep and consuming, particularly in the forest scenes."
+}
