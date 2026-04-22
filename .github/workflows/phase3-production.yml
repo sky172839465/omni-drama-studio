@@ -19,16 +19,18 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: gh api -X POST /repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions -f content='eyes'
+      - name: Get Story ID
+        run: echo "STORY_ID=$(echo '${{ github.event.issue.title }}' | sed 's/Production: //')" >> $GITHUB_ENV
       - uses: actions/checkout@v5
+        with:
+          ref: story/${{ env.STORY_ID }}
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: 'lts/*'
       - name: Parse Selection
         run: |
-          STORY_ID=$(echo "${{ github.event.issue.title }}" | sed 's/Production: //')
           CHOICE=$(echo "${{ github.event.comment.body }}" | grep -oP 'omni-drama-studio choose \K[A-C]')
-          echo "STORY_ID=$STORY_ID" >> $GITHUB_ENV
           echo "CHOICE=$CHOICE" >> $GITHUB_ENV
 
       - name: Save Config
@@ -68,6 +70,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: story/${{ github.event.client_payload.storyId }}
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
