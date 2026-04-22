@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    {
+      "id": "A",
+      "description": "A recently deceased human body, unnaturally pristine yet disturbingly out of place in the desolate forest, embodying the unsettling aftermath of the anomaly.",
+      "prompt": "A full human corpse lying on the desaturated, mossy forest floor, surrounded by fallen leaves and sparse undergrowth. The body is pale with a serene yet vacant expression, devoid of typical signs of struggle or decomposition, emphasizing its unnatural delivery. The lighting is stark and natural, with muted greens and grays dominating the scene, creating an ominous and desolate mood. A subtle, almost imperceptible sheen of amniotic fluid might be present on the surrounding leaves.",
+      "appearance_seeds": [
+        "pale, unblemished skin",
+        "serene, vacant expression",
+        "limbs slightly splayed",
+        "damp forest floor",
+        "muted, desaturated colors"
+      ]
+    },
+    {
+      "id": "B",
+      "description": "A pregnant doe exhibiting extreme physical distress and unnatural distortion, hinting at the grotesque horror it is enduring due to the anomaly.",
+      "prompt": "A pregnant doe standing in a desolate, snow-covered forest, its body visibly contracting and shaking. Its hindquarters are unnaturally distended and distorted, with a vague, grotesque object protruding. Its eyes are wide with terror and pain, reflecting the stark, desaturated light of the winter day. The overall mood is unsettling and mysterious, blending natural beauty with grotesque anomaly. The forest is quiet, with only the deer's struggle breaking the silence.",
+      "appearance_seeds": [
+        "distended, pulsating flank",
+        "eyes wide with terror",
+        "winter coat, matted fur",
+        "vague protruding object",
+        "frozen, desolate forest"
+      ]
+    },
+    {
+      "id": "C",
+      "description": "A close-up of a human face, reflecting profound distress, confusion, and horror, as they process the impossible events of the anomaly.",
+      "prompt": "A close-up, desaturated portrait of a woman's face (e.g., a dispatcher or coroner), illuminated by the cold, stark light of a computer screen or harsh office lighting. Her eyes are wide with a mixture of fear, disbelief, and a deep, unsettling understanding of something profoundly wrong. There are subtle shadows under her eyes, indicating strain. Her expression conveys the pervasive sense of dread and unexplained horror. The background is blurred, hinting at a sterile, functional environment (like a dispatch office or lab) with a muted color palette.",
+      "appearance_seeds": [
+        "distressed, wide eyes",
+        "furrowed brow of confusion",
+        "pale, strained complexion",
+        "stark, cold lighting",
+        "expression of profound horror"
+      ]
+    }
+  ]
+}
