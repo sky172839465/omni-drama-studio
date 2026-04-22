@@ -46,7 +46,7 @@ jobs:
       - name: Trigger Production
         uses: peter-evans/repository-dispatch@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
           event-type: continue-production
           client-payload: '{"storyId": "${{ env.STORY_ID }}"}'
 
@@ -89,12 +89,12 @@ jobs:
           # For now, let's assume if it finished successfully, we check if more work is needed
           STORY_ID=${{ github.event.client_payload.storyId }}
           if grep -q "- \[ \]" drama/$STORY_ID/checklist.md; then
-            curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            curl -X POST -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
               -H "Accept: application/vnd.github.v3+json" \
               https://api.github.com/repos/${{ github.repository }}/dispatches \
               -d "{\"event_type\": \"continue-production\", \"client_payload\": {\"storyId\": \"$STORY_ID\"}}"
           else
-            curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            curl -X POST -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
               -H "Accept: application/vnd.github.v3+json" \
               https://api.github.com/repos/${{ github.repository }}/dispatches \
               -d "{\"event_type\": \"finalize-production\", \"client_payload\": {\"storyId\": \"$STORY_ID\"}}"
