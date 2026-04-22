@@ -1,0 +1,13 @@
+{
+  "id": "A",
+  "description": "A horrifying, partially emerged humanoid entity, still connected to its animal host, showcasing grotesque biological fusion and an unsettling, alien nature. Its features should be distorted and combine both human and animalistic traits in a deeply disturbing manner, emphasizing the unnatural horror.",
+  "prompt": "A grotesque, partially emerged humanoid creature, half-fallen from the hindquarters of a dead pregnant doe in a desolate, misty forest clearing. The creature's skin is pale and unnaturally smooth, stretched taut over contorted human-like limbs, with patches of coarse animal fur and fragments of bone. Its head is disproportionately large, with sunken, empty eye sockets and a wide, agape mouth revealing no teeth, just dark tissue. The doe's body is mangled and twisted, still partially obscuring the creature's lower torso. The scene is bathed in a cold, desaturated blue-green light, with an oppressive, dark forest canopy in the background. Hyperrealistic, visceral, disturbing detail, focus on the unnatural textures and the horrific emergence.",
+  "appearance_seeds": [
+    "Grotesque biological fusion",
+    "Pale, taut skin",
+    "Patches of coarse fur",
+    "Sunken, empty eye sockets",
+    "Distorted humanoid limbs"
+  ],
+  "global_mood": "Ominous, unsettling, dark, and mysterious, with a creeping sense of dread. Utilizes a cool color palette with desaturated greens and blues, minimal warm tones, transitioning to stark, clinical lighting for the surveillance footage. The atmosphere is consistently foreboding and claustrophobic, highlighting themes of unnatural horror and unseen threats."
+}
