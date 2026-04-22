@@ -1,0 +1,13 @@
+{
+  "id": "A",
+  "description": "The central anomaly, a pregnant doe undergoing a horrifying, unnatural birthing process, merging deer and human anatomy into a grotesque, disturbing entity.",
+  "prompt": "A wide shot of a pregnant doe standing unnaturally still in a desolate, snow-covered forest at dusk. Its hindquarters are grossly expanded, pulsing with visible veins, and a dark, slick human arm and a partially emerged human head protrude from the birth canal. The doe's eyes are wide, blank, and completely black, reflecting no light. The scene is dominated by desaturated cool tones, deep, oppressive shadows, and an unsettlingly clinical horror atmosphere. Extreme detail on the texture of the deer fur and the glistening, unnatural human parts.",
+  "appearance_seeds": [
+    "Grossly expanded, pulsating deer hindquarters",
+    "Partially emerged, slick human body parts (head, arm)",
+    "Doe's wide, vacant, completely black eyes",
+    "Matted, unnaturally dark, wet fur around hindquarters",
+    "Slightly bowed, unnervingly still deer posture"
+  ],
+  "global_mood": "Ominous, unsettling, mysterious, existential dread. Visuals dominated by desaturated cool tones, deep shadows, and an almost clinical, detached horror."
+}
