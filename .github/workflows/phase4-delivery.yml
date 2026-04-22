@@ -28,6 +28,6 @@ jobs:
       - name: Notify Telegram
         run: |
           FINAL_URL=$(jq -r .finalVideoKey < final_res.json)
-          MESSAGE="🎬 *Production Complete!*%0AStory: ${{ github.event.client_payload.storyId }}%0AWatch here: ${FINAL_URL}"
+          MESSAGE="🎬 *製作完成！*%0A故事：${{ github.event.client_payload.storyId }}%0A觀看連結：${FINAL_URL}"
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
             -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=${MESSAGE}&parse_mode=Markdown"

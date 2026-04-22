@@ -43,7 +43,9 @@ jobs:
           MAXIMUM_VIDEO_DURATION: ${{ github.event.inputs.maximum_video_duration }}
         run: |
           node src/scripts/run-screenwriter.js "$SCP_URL" "$MAXIMUM_VIDEO_DURATION" > output.json
-          echo "STORY_ID=$(jq -r .storyId < output.json)" >> $GITHUB_ENV
+          STORY_ID=$(jq -r .storyId < output.json)
+          echo "STORY_ID=$STORY_ID" >> $GITHUB_ENV
+          mv output.json "drama/$STORY_ID/output.json"
 
       - name: Create Pull Request
         env:
@@ -53,14 +55,14 @@ jobs:
           git config user.email "github-actions@github.com"
           git checkout -b "story/${{ env.STORY_ID }}"
           git add .
-          git commit -m "chore: initialize story ${{ env.STORY_ID }}"
+          git commit -m "chore: 初始化故事 ${{ env.STORY_ID }}"
           git push -u origin "story/${{ env.STORY_ID }}"
           gh pr create \
             --title "Production: ${{ env.STORY_ID }}" \
-            --body "New story production initiated for ${{ github.event.inputs.scp_url }}.
+            --body "已為 ${{ github.event.inputs.scp_url }} 啟動新的故事製作。
 
-            Please review the \`script.json\` and \`checklist.md\` in the \`drama/${{ env.STORY_ID }}\` directory.
+            請檢閱位於 \`drama/${{ env.STORY_ID }}\` 目錄中的 \`script.json\` 與 \`checklist.md\`。
 
-            Next Step: Character Designer will post visual concepts below." \
+            下一步: 角色設計師將在下方發布視覺概念提案。" \
             --head "story/${{ env.STORY_ID }}" \
             --base main

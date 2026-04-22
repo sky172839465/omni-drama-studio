@@ -28,6 +28,15 @@ jobs:
           STORY_ID=$(echo "${{ github.head_ref }}" | sed 's/story\///')
           node src/scripts/run-designer.js "$STORY_ID" > design_output.json
 
+      - name: Commit Design JSON
+        run: |
+          STORY_ID=$(echo "${{ github.head_ref }}" | sed 's/story\///')
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add "drama/$STORY_ID/design.json"
+          git commit -m "chore: 儲存角色設計與視覺概念 (story $STORY_ID)"
+          git push
+
       - name: Post Comment
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -35,11 +44,11 @@ jobs:
           node -e "
             const fs = require('fs');
             const design = JSON.parse(fs.readFileSync('design_output.json', 'utf8'));
-            let body = '## Visual Concepts Proposed\n\n';
+            let body = '## 視覺概念提案\n\n';
             design.concepts.forEach(c => {
-              body += \`### Concept \${c.id}\n\${c.description}\n**Traits:** \${c.appearance_seeds.join(', ')}\n\n\`;
+              body += \`### 概念 \${c.id}\n\${c.description}\n**外觀特徵:** \${c.appearance_seeds.join(', ')}\n\n\`;
             });
-            body += '\n**Please reply with \`@bot choose [A/B/C]\` to proceed.**';
+            body += '\n**請回覆 \`omni-drama-studio choose [A/B/C]\` 來選擇並繼續流程。**';
             fs.writeFileSync('comment_body.md', body);
           "
           gh issue comment ${{ github.event.issue.number || github.event.pull_request.number }} --body-file comment_body.md
