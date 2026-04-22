@@ -35,6 +35,9 @@ export async function runDesigner(storyId) {
 
   const prompt = `
     Based on the following SCP script, create 3 distinct visual concepts (A, B, C) for the main characters or entities.
+    * A: Photorealistic
+    * B: 2.5D stylized render
+    * C: 2D illustration / flat style
     For each concept, provide:
     - description: A brief overview of the visual style.
     - prompt: A detailed prompt for an image generator to create a reference image.
