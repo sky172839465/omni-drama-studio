@@ -1,0 +1,13 @@
+{
+  "id": "A",
+  "description": "A hyper-realistic depiction, emphasizing intricate textures, naturalistic lighting, and a raw, visceral realism. The anomaly appears as a grotesque biological mutation, profoundly disturbing and grounded.",
+  "prompt": "Photorealistic image of SCP-8805, a horrifying fusion of a pregnant doe and human elements, emerging from a dense, fog-shrouded, desaturated forest. The creature has a deer's body with a visibly distended, pregnant belly, but features gaunt, mottled human arms and a disfigured human head grotesquely fused onto its neck, with vacant, bloodshot eyes. Its skin is a sickly grey-brown, showing unnatural seams and raw flesh where the biological forms merge. Deep, oppressive shadows cling to its form. The forest background is extremely dense and claustrophobic, with minimal, cold light filtering through. Chilling, somber, deeply unsettling, clinical horror.",
+  "appearance_seeds": [
+    "Sickly grey-brown mottled skin",
+    "Visibly distended pregnant doe belly",
+    "Disfigured human head, vacant bloodshot eyes",
+    "Gaunt, mottled human arms with unnatural joints",
+    "Raw, visible seams of biological fusion"
+  ],
+  "global_mood": "Chilling, somber, mysterious, deeply unsettling, clinical horror. Emphasize desaturated colors, deep shadows, and an oppressive, claustrophobic atmosphere that slowly builds to a visceral, disturbing reveal."
+}
