@@ -1,0 +1,13 @@
+{
+  "id": "A",
+  "description": "The 'Missing Person' concept visually represents the victims before or during their disappearance, highlighting their initial normalcy contrasted with growing fear and the desolation of their surroundings. Their appearance is mundane, yet increasingly vulnerable, reflecting the grim fate that awaits them.",
+  "prompt": "A lone man, mid-30s, disoriented and visibly shivering, stands on a desolate, fog-shrouded forest path in Pennsylvania. He wears a slightly torn flannel shirt and jeans. His face is pale and drawn, eyes wide with a mixture of confusion and dawning horror. Muted greens and grays dominate the scene, with a cold, unsettling atmosphere. Cold breath visible.",
+  "appearance_seeds": [
+    "disoriented expression",
+    "weathered, slightly torn civilian clothing",
+    "pale, drawn features",
+    "eyes reflecting fear/despair",
+    "subtle hints of cold/exposure"
+  ],
+  "global_mood": "Ominous, desolate, and deeply unsettling. A cold, desaturated color palette with muted greens and grays dominates, evoking a sense of ancient dread and hidden horrors within the natural world. The tone shifts from initial mystery and investigation to stark, visceral horror and existential dread, leaving a lingering sense of unknown threats."
+}
