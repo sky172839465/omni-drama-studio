@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    {
+      "id": "A",
+      "description": "A hyper-realistic depiction, emphasizing intricate textures, naturalistic lighting, and a raw, visceral realism. The anomaly appears as a grotesque biological mutation, profoundly disturbing and grounded.",
+      "prompt": "Photorealistic image of SCP-8805, a horrifying fusion of a pregnant doe and human elements, emerging from a dense, fog-shrouded, desaturated forest. The creature has a deer's body with a visibly distended, pregnant belly, but features gaunt, mottled human arms and a disfigured human head grotesquely fused onto its neck, with vacant, bloodshot eyes. Its skin is a sickly grey-brown, showing unnatural seams and raw flesh where the biological forms merge. Deep, oppressive shadows cling to its form. The forest background is extremely dense and claustrophobic, with minimal, cold light filtering through. Chilling, somber, deeply unsettling, clinical horror.",
+      "appearance_seeds": [
+        "Sickly grey-brown mottled skin",
+        "Visibly distended pregnant doe belly",
+        "Disfigured human head, vacant bloodshot eyes",
+        "Gaunt, mottled human arms with unnatural joints",
+        "Raw, visible seams of biological fusion"
+      ]
+    },
+    {
+      "id": "B",
+      "description": "A stylized 2.5D render, blending realistic depth with a slightly simplified, illustrative quality, similar to a high-end cinematic from a horror game. Emphasizes defined edges, atmospheric volumetric lighting, and a sense of unnatural grace.",
+      "prompt": "2.5D stylized render of SCP-8805, a grotesque hybrid creature of a pregnant doe and human, emerging from a dimly lit, stylized, ancient forest. The creature has a sleek deer's body with a prominent, unnaturally round pregnant abdomen, but features smooth, almost sculpted human arms and a subtly stylized, unsettling human head with hollow, shadowed eyes, grafted onto its neck. The creature's texture work is clean but detailed, highlighting unnatural seams where the forms merge. Volumetric fog and deep, dramatic chiaroscuro shadows define its form, giving a strong sense of depth and mystery. The color palette is desaturated with hints of sickly muted greens and browns, under a cold, blue-tinged light. Eerie, somber, cinematic horror.",
+      "appearance_seeds": [
+        "Sleek, sculpted biological fusion",
+        "Unnaturally round pregnant doe belly",
+        "Stylized human head, hollow shadowed eyes",
+        "Smooth, anatomically distinct human arms",
+        "Volumetric fog with dramatic rim lighting"
+      ]
+    },
+    {
+      "id": "C",
+      "description": "A stark, graphic 2D illustration with a flat, limited color palette and strong, oppressive silhouettes. Reminiscent of unsettling clinical diagrams or a macabre children's book, focusing on disturbing form and negative space.",
+      "prompt": "2D illustration in a flat, graphic style of SCP-8805, a disturbing fusion of a pregnant doe and human, emerging from a stylized, shadowed, dense forest. The creature is rendered with clean, hard lines and strong, blocky silhouettes. It possesses the distinct, rounded shape of a pregnant doe's body, but with clearly defined, almost symbolic human arms and a simplified, unsettling human head with stark, black eyes, all fused together with minimal detail. The color palette is extremely limited, using only desaturated greens, greys, and deep browns, with minimal or no shading, relying on stark contrasts. The background forest is abstract, oppressive, and claustrophobic, using negative space to enhance dread. The overall mood is stark, chilling, and graphically horrific, like a clinical sketch.",
+      "appearance_seeds": [
+        "Clean, hard lines, blocky silhouette",
+        "Stylized, rounded pregnant doe form",
+        "Simplified human head, stark black eyes",
+        "Graphic, symbolic human arms",
+        "Limited, desaturated, flat color palette"
+      ]
+    }
+  ]
+}
