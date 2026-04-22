@@ -1,0 +1,336 @@
+{
+  "title": "SCP-8805: The Sixteen Disappearances of ███ █████ Forest",
+  "acts": [
+    {
+      "act_number": 1,
+      "clips": [
+        {
+          "timestamp": "00:00",
+          "duration": 7,
+          "visual_description": "Opening shot: A deep, ancient forest at dusk. Dense trees, heavy mist clinging to the ground, casting long, distorted shadows. Low light filtering through the canopy, creating a feeling of profound isolation and foreboding.",
+          "dialogue": "",
+          "sound_vibe": "Low, ominous drone (sustaining pedal tone). Sparse, deep forest sounds: creaking trees, distant, distorted animal calls. A subtle, high-frequency hum.",
+          "key_object": "The forest itself"
+        },
+        {
+          "timestamp": "00:07",
+          "duration": 7,
+          "visual_description": "Title Card: 'SCP-8805: The Sixteen Disappearances of Pennsylvania's ███ █████ Forest.' The text appears in stark white, fading in slowly over the continuing forest shot. The font is blocky and official.",
+          "dialogue": "",
+          "sound_vibe": "Drone intensifies slightly. A single, sharp, metallic 'clink' sound, then a momentary, unnerving silence before the drone resumes.",
+          "key_object": "Title text"
+        },
+        {
+          "timestamp": "00:14",
+          "duration": 7,
+          "visual_description": "Grainy, monochrome POV shot from a hidden trail camera. A deer cautiously steps into view, moving through the dense undergrowth. It stops abruptly, looks directly into the lens with wide, dark eyes, then bolts out of frame.",
+          "dialogue": "",
+          "sound_vibe": "Rustling leaves, snap of twigs. A sudden, sharp, high-pitched animal alarm call, followed by an immediate, uneasy silence.",
+          "key_object": "Deer"
+        },
+        {
+          "timestamp": "00:21",
+          "duration": 7,
+          "visual_description": "Two men (Nathan Tucker and Cameron Hoffman) in hunting gear, laughing jovially as they disappear into the thick woods. Sunlight dapples through the leaves. The shot is slightly out of focus, giving it a nostalgic, distant quality.",
+          "dialogue": "(Faint, echoing laughter) \"Alright, let's get 'em!\" \"Yeah, catch us if you can!\"",
+          "sound_vibe": "Upbeat, yet slightly melancholic acoustic guitar melody. Forest ambiance. Faint, echoing footsteps.",
+          "key_object": "Hunters"
+        },
+        {
+          "timestamp": "00:28",
+          "duration": 7,
+          "visual_description": "Extreme close-up of a ringing landline phone on a dark nightstand in a dimly lit room. A trembling hand reaches out to answer. Only the hand and part of a worried face, illuminated by the phone's screen, are visible.",
+          "dialogue": "(Whispered, panicked) \"He hasn't come back, Sheriff. It's been days. Something's wrong.\"",
+          "sound_vibe": "Persistent, shrill phone ring. Anxious, heavy breathing. Muffled, distant siren wails, then fades.",
+          "key_object": "Telephone"
+        },
+        {
+          "timestamp": "00:35",
+          "duration": 7,
+          "visual_description": "An abandoned, mud-splattered pickup truck parked at the overgrown edge of a remote dirt road, partially obscured by low-hanging tree branches. The passenger door is slightly ajar, swaying gently in the breeze.",
+          "dialogue": "(Voiceover, formal police radio, distorted) \"Vehicle located. No occupants present. Over.\"",
+          "sound_vibe": "Light rain pattering softly on the vehicle's roof. Distant, crackling police chatter on a radio. The mournful cry of a hawk overhead.",
+          "key_object": "Abandoned truck"
+        },
+        {
+          "timestamp": "00:42",
+          "duration": 7,
+          "visual_description": "Close-up on a high-powered hunting rifle lying discarded and partially covered by dead leaves in thick underbrush. A few feet away, a small, dark, dried pool of blood stains the forest floor.",
+          "dialogue": "",
+          "sound_vibe": "A slow, creeping cello line, a deep, unsettling thrum. A faint, barely perceptible buzzing of flies.",
+          "key_object": "Hunting rifle"
+        },
+        {
+          "timestamp": "00:49",
+          "duration": 7,
+          "visual_description": "A rapid montage: blurred newspaper headlines about 'Missing Hunters' and 'Local Search Efforts' quickly fade and flip through June, July, and August on a calendar page. The tone is increasingly desperate.",
+          "dialogue": "(Voiceover, news anchor, detached and somber) \"...search efforts for the missing hunters have been officially called off...\"",
+          "sound_vibe": "Fast-paced, urgent, dissonant strings. Rapid sound of turning pages. A news jingle fades in and out quickly.",
+          "key_object": "Newspaper headlines/calendar"
+        },
+        {
+          "timestamp": "00:56",
+          "duration": 7,
+          "visual_description": "A rented car, foreign license plates visible, parked innocently by a trailhead. Quick cut to a close-up of the ignition, where a hand quickly snatches the keys, leaving an empty space.",
+          "dialogue": "(Voiceover, police report, monotone) \"...rental vehicle stolen after tourists' disappearance.\"",
+          "sound_vibe": "A short, sharp electronic 'beep' (car alarm disarm). A quick 'clink' of keys. Then an unsettling silence.",
+          "key_object": "Car keys"
+        },
+        {
+          "timestamp": "01:03",
+          "duration": 7,
+          "visual_description": "Forensic team in white hazmat suits meticulously working around a badly decomposed body, partially obscured by a grey tarp, in a remote forest clearing. The entire scene is desaturated, almost monochromatic.",
+          "dialogue": "(Voiceover, detached medical examiner) \"...cause of death undetermined due to advanced decomposition.\"",
+          "sound_vibe": "Clinical, hushed activity. Distant drone of a helicopter. A single, sharp camera click echoing through the silence.",
+          "key_object": "Decomposed body (under tarp)"
+        },
+        {
+          "timestamp": "01:10",
+          "duration": 7,
+          "visual_description": "Close-up of a secure, official-looking document with blurred text being stamped firmly with a large, red 'CLASSIFIED' seal. The SCP Foundation logo briefly appears in the corner.",
+          "dialogue": "(Whispered, firm, authoritative) \"Containment protocols initiated. Local authorities are to stand down.\"",
+          "sound_vibe": "Heavy, authoritative stamp 'THUD'. Low, sustained electronic hum, subtly increasing in volume. A soft, digital 'ping'.",
+          "key_object": "Classified document with SCP logo"
+        },
+        {
+          "timestamp": "01:17",
+          "duration": 7,
+          "visual_description": "A small, bustling town preparing for hunting season. People in camouflage buying supplies from local shops, loading rifles into the backs of pickup trucks. A sense of excited anticipation and tradition.",
+          "dialogue": "(General chatter, upbeat, excited) \"Big season this year! Hope we get a good one!\"",
+          "sound_vibe": "Upbeat, rustic folk music. General bustling town sounds: distant gunshots, car horns, cheerful conversations.",
+          "key_object": "Hunting gear"
+        },
+        {
+          "timestamp": "01:24",
+          "duration": 7,
+          "visual_description": "Four hunters (Oliver Campbell, Asher Hall, Theodore Latch Sr., and Theo Latch Jr.) walking confidently into the dense, autumnal forest. They are silhouetted against a rising sun. Young Theo Jr. looks eager and slightly nervous.",
+          "dialogue": "(Latch Sr.) \"Alright Theo, this is what it's all about. Your first big hunt!\" (Theo Jr.) \"Yeah, Dad!\"",
+          "sound_vibe": "Heroic, slightly melancholic orchestral swell. The crisp crunching of leaves underfoot. Excited, hopeful voices.",
+          "key_object": "Four hunters"
+        },
+        {
+          "timestamp": "01:31",
+          "duration": 7,
+          "visual_description": "A close-up of a hand, covered in mud and grime, frantically fumbling to dial a phone number. The shot focuses on the dirty, trembling fingers struggling with the small keypad of a cracked smartphone screen.",
+          "dialogue": "(Heavy, panicked breathing, strained voice) \"Hello? 911? Please! You have to help me!\"",
+          "sound_vibe": "Rapid, shallow breathing. Distant, muffled forest sounds. A faint, desperate dial tone. Fingers tapping frantically.",
+          "key_object": "Mobile phone"
+        },
+        {
+          "timestamp": "01:38",
+          "duration": 7,
+          "visual_description": "A black screen with stark white text slowly appearing, line by line: '911 CALL TRANSCRIPT: THEO LATCH JR. - 12-01-████'",
+          "dialogue": "(Operator, calm, slightly distorted) \"Hello, what's your emergency?\" (Theo Jr., panicked, echoing, with static) \"Save me! I don't know where I am! Please!\"",
+          "sound_vibe": "Distorted static, followed by the calm, filtered voice of the 911 operator, then Theo's frantic, echoing voice, heavily processed.",
+          "key_object": "Text transcript"
+        },
+        {
+          "timestamp": "01:45",
+          "duration": 7,
+          "visual_description": "A rapid montage of blurry, disorienting, claustrophobic shots: dark, wet textures; a fleeting glimpse of rough, hessian fabric; a sensation of being tumbled and submerged in darkness. The view is constantly shifting and unstable.",
+          "dialogue": "(Theo Jr., breathless, claustrophobic whispers) \"I'm in a bag, I think... It's dark and wet... really wet... I can't move...\"",
+          "sound_vibe": "Gurgling water, muffled thumps, distorted, wet whispers. Accelerating, discordant strings. A growing sense of suffocation.",
+          "key_object": "The unseen 'bag'"
+        },
+        {
+          "timestamp": "01:52",
+          "duration": 7,
+          "visual_description": "A GPS tracking map on a screen, displaying a large, imprecise triangulated area within the forest, flickering red. The signal suddenly drops, and a stark 'LOST SIGNAL' message flashes across the screen.",
+          "dialogue": "(Operator, urgent) \"Sir, what's your name? Can you hear me? Sir?\" (Static, then a distinct disconnected tone)",
+          "sound_vibe": "Increasing electronic beeps, then a sharp 'CRACKLE' followed by a flatline tone. The sound of a connection dropping.",
+          "key_object": "GPS map"
+        },
+        {
+          "timestamp": "01:59",
+          "duration": 7,
+          "visual_description": "Search and rescue teams in high-visibility gear wading through a cold, fast-flowing river. Their faces are grim, weary. The water is dark, turbulent, and appears deceptively deep. Heavy winter coats are soaked.",
+          "dialogue": "(Voiceover, rescuer, exhausted) \"Search priority remains the riverbed... current's too strong.\"",
+          "sound_vibe": "Rushing river water, heavy, rhythmic footsteps squelching in water. A chilling, high-pitched wind howls through the trees.",
+          "key_object": "Rescuers in river"
+        },
+        {
+          "timestamp": "02:06",
+          "duration": 7,
+          "visual_description": "Close-up on a patch of frozen forest floor, far from any water source. A gloved hand pushes aside dead leaves and snow to reveal a pale, still face - Asher Hall. His eyes are wide open, staring blankly upwards.",
+          "dialogue": "(Voiceover, medical examiner, clinical, dispassionate) \"Cause of death: Drowning. Unexplained.\"",
+          "sound_vibe": "A sudden, sharp intake of breath. The cold 'squelch' of wet leaves. A haunting, solitary flute note, lingering.",
+          "key_object": "Asher Hall's face"
+        },
+        {
+          "timestamp": "02:13",
+          "duration": 7,
+          "visual_description": "Extreme close-up of an old-fashioned mercury thermometer, the red line dropping rapidly into the freezing zone. Outside a heavily frosted window, heavy snow begins to fall, obscuring the view.",
+          "dialogue": "(Voiceover, news report, concerned) \"Severe winter conditions force the suspension of search efforts... for the foreseeable future.\"",
+          "sound_vibe": "Whistling wind, heavy snowfall sounds. Distant, muffled news report from a crackling radio.",
+          "key_object": "Thermometer/Snow"
+        },
+        {
+          "timestamp": "02:20",
+          "duration": 7,
+          "visual_description": "Two search volunteers, bundled in winter gear, pause in a clearing. One turns to the other with a confused, fearful expression, then both look towards something unseen in the deep shadows of the forest. The camera suddenly shakes violently and cuts to black.",
+          "dialogue": "(Volunteer 1, hushed) \"Did you hear that?\" (Volunteer 2, whispers) \"What was that sound? It's close.\"",
+          "sound_vibe": "Subtle, unnatural rustling from deep in the woods. A low, guttural growl that quickly fades. A sudden, sharp 'CRACK!' then silence.",
+          "key_object": "Two volunteers"
+        },
+        {
+          "timestamp": "02:27",
+          "duration": 7,
+          "visual_description": "A black screen. A single line of stark, red text slowly fades in: 'SEARCH RESCINDED. TWO ADDITIONAL PERSONNEL MISSING.' The text glows ominously.",
+          "dialogue": "",
+          "sound_vibe": "A final, deep, resonating 'THUMP', like a heavy object hitting soft earth, followed by a long, unsettling, empty silence.",
+          "key_object": "Red text"
+        }
+      ]
+    },
+    {
+      "act_number": 2,
+      "clips": [
+        {
+          "timestamp": "02:34",
+          "duration": 7,
+          "visual_description": "Grainy, night vision-style video. A digital timestamp '12-23-████ - 03:17:22' appears briefly. The scene is still, quiet forest under moonlight, the bare trees stark against the dark sky. Eerie and watchful.",
+          "dialogue": "",
+          "sound_vibe": "Eerie ambient forest sounds, crickets, a distant owl hoot. Very subtle, sustained high-frequency whine, like distant electronics.",
+          "key_object": "Digital timestamp"
+        },
+        {
+          "timestamp": "02:41",
+          "duration": 7,
+          "visual_description": "A heavily pregnant doe (belly visibly distended to an unnatural degree) steps cautiously into the frame. Her breath mists slightly in the cold air. She appears agitated, restless, constantly scanning her surroundings.",
+          "dialogue": "",
+          "sound_vibe": "Deep, resonant low-frequency hum begins to underscore the scene. Gentle rustling as the doe moves, quick, shallow breaths.",
+          "key_object": "Pregnant doe"
+        },
+        {
+          "timestamp": "02:48",
+          "duration": 7,
+          "visual_description": "Extreme close-up on the doe's eyes; they are unnaturally wide, unblinking, and appear entirely black, reflecting only the faint moonlight. Her ears twitch nervously, indicating intense discomfort or fear.",
+          "dialogue": "",
+          "sound_vibe": "A subtly distorted heartbeat rhythm. The drone deepens, becoming more unsettling and pervasive. A faint, almost imperceptible ringing.",
+          "key_object": "Doe's eyes"
+        },
+        {
+          "timestamp": "02:55",
+          "duration": 7,
+          "visual_description": "The doe struggles to lie down on the frozen ground. Her hind legs begin to kick with a slow, unnatural, almost convulsive twitching. Her body tenses with visible strain.",
+          "dialogue": "",
+          "sound_vibe": "Guttural, strained animal sounds, not typical birthing sounds but more akin to pain or severe discomfort. A mechanical, grinding sound begins to layer in.",
+          "key_object": "Doe's hind legs"
+        },
+        {
+          "timestamp": "03:02",
+          "duration": 7,
+          "visual_description": "Extreme close-up, partially obscured by foliage, of something dark, elongated, and distinctly not-fawn-like beginning to emerge from the doe's vaginal opening. It moves with grotesque slowness.",
+          "dialogue": "",
+          "sound_vibe": "Wet, squelching, visceral sounds. The grinding intensifies, becoming more metallic. A high-pitched, almost imperceptible ringing persists.",
+          "key_object": "Emerging object"
+        },
+        {
+          "timestamp": "03:09",
+          "duration": 7,
+          "visual_description": "The doe's entire posterior begins to expand, visibly stretching and growing with each contraction. The skin distends unnaturally, becoming taut and shiny. The process is grotesque and biologically impossible.",
+          "dialogue": "",
+          "sound_vibe": "Subtle, disturbing tearing flesh sounds. A rising, discordant string section. The drone reaches a low, guttural growl.",
+          "key_object": "Doe's expanding posterior"
+        },
+        {
+          "timestamp": "03:16",
+          "duration": 7,
+          "visual_description": "A human head, pale and lifeless, slowly emerges, hair matted and wet with fluid. The doe's own head lolls from side to side, eyes wide and unseeing, reacting to the unnatural birth.",
+          "dialogue": "",
+          "sound_vibe": "A sickening, wet 'POP' as the head fully emerges. The drone transforms into a deep, sustained, guttural roar, filling the soundscape.",
+          "key_object": "Human head"
+        },
+        {
+          "timestamp": "03:23",
+          "duration": 7,
+          "visual_description": "Close-up on the doe's face. Her eyes are now entirely black, reflecting only the distant, skeletal trees. A single, viscous drop of amniotic fluid slowly falls from her muzzle, glistening.",
+          "dialogue": "",
+          "sound_vibe": "Slow, deliberate dripping sound. The drone is now a deep, resonant, pulsating thrum, almost a physical vibration.",
+          "key_object": "Doe's face"
+        },
+        {
+          "timestamp": "03:30",
+          "duration": 7,
+          "visual_description": "The doe struggles to her feet, her monstrously distended rear now almost twice its normal size, pulsating with unnatural, dark life. Her movements are stiff, clumsy, yet driven by an unseen force.",
+          "dialogue": "",
+          "sound_vibe": "Groaning, creaking sounds from the doe's straining body. The bass drone reaches its peak intensity, almost overwhelming.",
+          "key_object": "Distended doe"
+        },
+        {
+          "timestamp": "03:37",
+          "duration": 7,
+          "visual_description": "The human's arms drop out of the birth canal, limp and lifeless, swaying sickeningly like marionette strings. The entire upper torso is now visible, dangling from the doe's rear.",
+          "dialogue": "",
+          "sound_vibe": "A soft, wet 'THUD' as the arms fall. A mournful, almost human-like groan emanates from the shifting soundscape.",
+          "key_object": "Human arms"
+        },
+        {
+          "timestamp": "03:44",
+          "duration": 7,
+          "visual_description": "The doe paces erratically, still contracting, dragging the emerging human body across the forest floor. The scene is frantic, disturbing, a dance of the macabre.",
+          "dialogue": "",
+          "sound_vibe": "Fast-paced, discordant string pizzicato. Hoofbeats on the frozen forest floor, mixed with wet, dragging sounds. Increasing tension.",
+          "key_object": "Doe dragging human"
+        },
+        {
+          "timestamp": "03:51",
+          "duration": 7,
+          "visual_description": "The human's lower torso and legs slide out, glistening with fluid and blood. The body is fully expelled, collapsing onto the forest floor with a wet thud, now a complete, lifeless form.",
+          "dialogue": "",
+          "sound_vibe": "A heavy, wet 'SPLAT' as the body hits the ground. The drone cuts out abruptly, leaving a sudden, chilling silence, save for a lingering hum.",
+          "key_object": "Expelled human body"
+        },
+        {
+          "timestamp": "03:58",
+          "duration": 7,
+          "visual_description": "The doe's rear visibly shrinks and contracts back to its normal size, almost instantly, as if the monstrous distension never happened. A small puff of mist escapes from its flank as it normalizes.",
+          "dialogue": "",
+          "sound_vibe": "A rapid, almost violent sucking sound. A high-pitched, resonant 'PING' as the body snaps back to normal. Silence follows.",
+          "key_object": "Doe's posterior"
+        },
+        {
+          "timestamp": "04:05",
+          "duration": 7,
+          "visual_description": "The doe stands over the human corpse, utterly still, staring blankly at it. The shot is low, from the ground up, emphasizing the doe's unnatural calm and the starkness of the moment.",
+          "dialogue": "",
+          "sound_vibe": "Utter silence, save for a faint, chilling wind rustling through bare branches. The drone has completely vanished.",
+          "key_object": "Doe staring at corpse"
+        },
+        {
+          "timestamp": "04:12",
+          "duration": 7,
+          "visual_description": "Close-up on the lifeless human face. It is Oliver Campbell, his eyes wide, mouth slightly agape, frozen in a silent scream of terror and agony. A single tear of frozen blood traces his temple.",
+          "dialogue": "(Voiceover, clinical female voice, monotone) \"Subject identified as Oliver Campbell. Missing since November 29th.\"",
+          "sound_vibe": "A single, deep, chilling, reverberating bass note. A distant, faint animal cry, like a banshee wail.",
+          "key_object": "Oliver Campbell's face"
+        },
+        {
+          "timestamp": "04:19",
+          "duration": 7,
+          "visual_description": "The doe suddenly turns its head, looks directly at the camera with its black, unblinking eyes for a split second, an unnerving gaze. Then, it bolts silently and swiftly into the deep, dark forest, disappearing without a trace.",
+          "dialogue": "",
+          "sound_vibe": "A sudden, sharp, percussive hit, like a single drum beat. The faint thud of hooves quickly fading into absolute silence.",
+          "key_object": "Doe running"
+        },
+        {
+          "timestamp": "04:26",
+          "duration": 7,
+          "visual_description": "The camera remains fixed on the corpse, now alone and utterly still on the forest floor. The forest around it is dark and silent, as if nothing profound or horrific had just occurred.",
+          "dialogue": "",
+          "sound_vibe": "A lingering, subtle, unsettling hum. A distant, mocking echo of the earlier deer alarm call. The sound of emptiness.",
+          "key_object": "Corpse of Oliver Campbell"
+        },
+        {
+          "timestamp": "04:33",
+          "duration": 7,
+          "visual_description": "FADE TO BLACK. Final text appears in stark white: 'SECURE. CONTAIN. PROTECT.' The iconic SCP Foundation logo fades in below the motto.",
+          "dialogue": "",
+          "sound_vibe": "A final, deep, resonant 'GONG' sound, slowly fading into a prolonged, echoing silence. The finality of the sound is chilling.",
+          "key_object": "SCP motto and logo"
+        }
+      ]
+    }
+  ],
+  "global_mood": "Eerie, clinically detached, with an underlying sense of dread and mounting horror."
+}
