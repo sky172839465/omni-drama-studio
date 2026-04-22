@@ -59,14 +59,21 @@ jobs:
       - name: Trigger Production
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          STORY_ID: ${{ env.STORY_ID }}
         run: |
           gh api \
             --method POST \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             /repos/${{ github.repository }}/dispatches \
-            -f event_type="continue-production" \
-            -f client_payload='{"storyId":"'"$STORY_ID"'"}'
+            --input - <<EOF
+            {
+              "event_type": "continue-production",
+              "client_payload": {
+                "storyId": "$STORY_ID"
+              }
+            }
+            EOF
 
   director-loop:
     if: github.event_name == 'repository_dispatch'
@@ -116,14 +123,26 @@ jobs:
               -H "Accept: application/vnd.github+json" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
               /repos/${{ github.repository }}/dispatches \
-              -f event_type="continue-production" \
-              -f client_payload='{"storyId":"'"$STORY_ID"'"}'
+              --input - <<EOF
+              {
+                "event_type": "continue-production",
+                "client_payload": {
+                  "storyId": "$STORY_ID"
+                }
+              }
+              EOF
           else
             gh api \
               --method POST \
               -H "Accept: application/vnd.github+json" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
               /repos/${{ github.repository }}/dispatches \
-              -f event_type="finalize-production" \
-              -f client_payload='{"storyId":"'"$STORY_ID"'"}'
+              --input - <<EOF
+              {
+                "event_type": "continue-production",
+                "client_payload": {
+                  "storyId": "$STORY_ID"
+                }
+              }
+              EOF
           fi
