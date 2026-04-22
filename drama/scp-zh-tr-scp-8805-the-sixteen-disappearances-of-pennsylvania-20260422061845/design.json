@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    {
+      "id": "A",
+      "description": "The 'Missing Person' concept visually represents the victims before or during their disappearance, highlighting their initial normalcy contrasted with growing fear and the desolation of their surroundings. Their appearance is mundane, yet increasingly vulnerable, reflecting the grim fate that awaits them.",
+      "prompt": "A lone man, mid-30s, disoriented and visibly shivering, stands on a desolate, fog-shrouded forest path in Pennsylvania. He wears a slightly torn flannel shirt and jeans. His face is pale and drawn, eyes wide with a mixture of confusion and dawning horror. Muted greens and grays dominate the scene, with a cold, unsettling atmosphere. Cold breath visible.",
+      "appearance_seeds": [
+        "disoriented expression",
+        "weathered, slightly torn civilian clothing",
+        "pale, drawn features",
+        "eyes reflecting fear/despair",
+        "subtle hints of cold/exposure"
+      ]
+    },
+    {
+      "id": "B",
+      "description": "The 'Foundation Operative' embodies the professional and grim determination of an SCP Foundation agent. Equipped with advanced gear, they navigate the unsettling environment with a focused intensity, representing humanity's desperate attempt to contain the unknown.",
+      "prompt": "An SCP Foundation operative, gender-neutral, stands alert in a desolate, snow-dusted Pennsylvania forest, holding a thermal scanner. They wear practical, desaturated olive green tactical gear with subtle utility pouches. Their face is partially obscured by a hood or comms gear, but their visible eye is sharp and focused, betraying a sense of grim resolve. The environment is cold, bleak, and foreboding.",
+      "appearance_seeds": [
+        "tactical gear/utility vest",
+        "desaturated olive green or gray uniform",
+        "intent, focused expression",
+        "advanced portable tech (e.g., thermal scanner)",
+        "foundation insignia (subtle)"
+      ]
+    },
+    {
+      "id": "C",
+      "description": "The 'Creature' concept depicts the central antagonist, a terrifying, grotesque amalgamation of deer and human forms. It is designed to evoke visceral horror, emphasizing unnatural biology, distorted features, and an unsettling, predatory presence within the desolate forest.",
+      "prompt": "A horrifying creature emerges from the dense undergrowth of a desolate Pennsylvania forest. Its body is primarily deer-like, but unnaturally distended and covered in wet, rough, dark fur. From its back and sides, contorted human limbs and a gaunt, distorted human head violently protrude. Its deer eyes glow with an unsettling, malevolent red light, staring directly forward. The scene is dominated by cold, desaturated colors, emphasizing the ancient dread and hidden horror.",
+      "appearance_seeds": [
+        "deer-like body, unnaturally distended",
+        "emerging human limbs/head (grotesque)",
+        "glowing red/unnatural eyes",
+        "wet, rough, dark fur/skin texture",
+        "twisted, unnatural posture/anatomy"
+      ]
+    }
+  ]
+}
