@@ -82,6 +82,8 @@ jobs:
         with:
           node-version: 'lts/*'
           cache: 'npm'
+      - name: Setup FFmpeg
+        uses: FedericoCarboni/setup-ffmpeg@v3
       - name: Install
         run: npm install
       - name: Director Action
