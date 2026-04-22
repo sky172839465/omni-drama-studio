@@ -12,9 +12,13 @@ permissions:
 
 jobs:
   handle-selection:
-    if: contains(github.event.comment.body, '@bot choose')
+    if: contains(github.event.comment.body, 'omni-drama-studio choose')
     runs-on: ubuntu-latest
     steps:
+      - name: Add reaction
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: gh api -X POST /repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions -f content='eyes'
       - uses: actions/checkout@v5
       - name: Setup Node
         uses: actions/setup-node@v6
@@ -23,7 +27,7 @@ jobs:
       - name: Parse Selection
         run: |
           STORY_ID=$(echo "${{ github.event.issue.title }}" | sed 's/Production: //')
-          CHOICE=$(echo "${{ github.event.comment.body }}" | grep -oP '@bot choose \K[A-C]')
+          CHOICE=$(echo "${{ github.event.comment.body }}" | grep -oP 'omni-drama-studio choose \K[A-C]')
           echo "STORY_ID=$STORY_ID" >> $GITHUB_ENV
           echo "CHOICE=$CHOICE" >> $GITHUB_ENV
 
@@ -44,7 +48,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add .
-          git commit -m "chore: set visual config for ${{ env.STORY_ID }}"
+          git commit -m "chore: 設定視覺配置 (story ${{ env.STORY_ID }})"
           git push
 
       - name: Trigger Production
@@ -88,7 +92,7 @@ jobs:
       - name: Commit Progress
         run: |
           git add .
-          git commit -m "docs: update production checklist" || exit 0
+          git commit -m "docs: 更新製作進度檢查清單" || exit 0
           git push
 
       - name: Recursive Trigger
