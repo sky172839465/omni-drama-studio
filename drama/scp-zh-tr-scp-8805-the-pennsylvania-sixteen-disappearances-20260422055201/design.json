@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    {
+      "id": "SCP-8805-A",
+      "description": "The initial, shocking stage of transformation, focusing on the human head emerging from the doe, covered in visceral amniotic fluid within a dark forest. A raw, biological horror.",
+      "prompt": "A heavily pregnant doe, eyes wide with silent terror, stands in a dense, dark forest at twilight. From its distended hindquarters, a pale, wet human head with closed eyes is violently emerging, trailing glistening amniotic fluid and visceral tissue. The doe's fur is matted and stained around the site of emergence, and its body is contorting unnaturally. Extreme close-up, visceral horror, highly detailed, photorealistic.",
+      "appearance_seeds": [
+        "Pregnant doe's distended belly",
+        "Pale human head emerging from hindquarters",
+        "Glistening amniotic fluid and tissue",
+        "Terrified, wide doe eyes",
+        "Dark, shadowy forest background"
+      ]
+    },
+    {
+      "id": "SCP-8805-B",
+      "description": "The creature in a more advanced, unsettling hybrid state, where a significant portion of a human torso and arms dangle from the standing doe, creating a bizarre and disturbing fusion.",
+      "prompt": "A standing doe, its body unnaturally elongated and distorted, has a complete, pale human torso emerging from its lower back, just above its hind legs. Two limp, dangling human arms hang lifelessly from the emerging torso. The doe's fur is ripped and stretched where the human body protrudes, revealing raw, biological fusion. Its own legs appear too thin, barely supporting the weight. The scene is lit by dim, unnatural light in a desolate clearing. Grotesque fusion, uncanny horror, highly detailed, photorealistic.",
+      "appearance_seeds": [
+        "Standing doe with distorted body",
+        "Pale human torso emerging from lower back",
+        "Limp, dangling human arms",
+        "Ripped and stretched fur/skin fusion",
+        "Unnaturally elongated doe legs"
+      ]
+    },
+    {
+      "id": "SCP-8805-C",
+      "description": "The transformed doe in a state of eerie calm, observing the human corpse it has birthed, with subtle, lingering signs of its grotesque process, in a somber forest setting.",
+      "prompt": "A slender doe stands perfectly still, its large, dark eyes fixed intently on a freshly created human corpse lying on the forest floor before it. The doe's hindquarters show subtle, unnatural stretching and slight discoloration, hinting at a recent violent transformation. A faint, glistening residue is visible on the ground around the corpse. The scene is enveloped in a chilling, silent atmosphere under an overcast sky. Ethereal, unsettling calm, subtle horror, photorealistic.",
+      "appearance_seeds": [
+        "Slender doe with unnervingly calm gaze",
+        "Fresh human corpse on forest floor",
+        "Subtle stretching/discoloration on doe's hindquarters",
+        "Faint, glistening residue on the ground",
+        "Somber, silent forest environment"
+      ]
+    }
+  ]
+}
