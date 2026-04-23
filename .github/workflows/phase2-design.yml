@@ -52,9 +52,9 @@ jobs:
               body += \`### 概念 \${c.id}\n\${c.description}\n**外觀特徵:** \${c.appearance_seeds.join(', ')}\n\n\`;
             });
             body += '\n**請從底下來選擇回覆並繼續流程。**';
-            body += '\n - `omni-drama-studio choose A`';
-            body += '\n - `omni-drama-studio choose B`';
-            body += '\n - `omni-drama-studio choose C`';
+            body += '\n - \`omni-drama-studio choose A\`';
+            body += '\n - \`omni-drama-studio choose B\`';
+            body += '\n - \`omni-drama-studio choose C\`';
             fs.writeFileSync('comment_body.md', body);
           "
           gh issue comment ${{ github.event.issue.number || github.event.pull_request.number }} --body-file comment_body.md
