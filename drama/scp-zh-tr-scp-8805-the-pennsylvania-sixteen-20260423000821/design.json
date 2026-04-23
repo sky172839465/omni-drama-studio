@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    {
+      "id": "A",
+      "description": "A gritty, hyper-realistic visual style, as if captured by a security camera or documentary footage. Emphasizes fine detail, naturalistic lighting, and a desaturated, cool-toned color palette to enhance the clinical dread and body horror.",
+      "prompt": "Photorealistic image of a pregnant deer's hindquarters as a pale, glistening human hand and forearm begin to emerge from the birth canal. The scene is set in a dimly lit, stark white laboratory environment. Focus on extreme detail: visible pores on the skin, matted fur, viscous dark fluids, and the strained, pained expression of the deer. Desaturated colors with high contrast in shadows. Ultra-realistic, unsettling, body horror.",
+      "appearance_seeds": [
+        "Matted, coarse deer fur",
+        "Glistening, pallid human skin",
+        "Thick, viscous, dark fluids",
+        "Strained, agonized deer expression",
+        "Distorted, unnatural human anatomy"
+      ]
+    },
+    {
+      "id": "B",
+      "description": "A stylized yet deeply rendered aesthetic, resembling high-quality concept art or a modern cinematic video game cutscene. Features clean character lines combined with detailed textures, dynamic lighting, and a heightened sense of dramatic tension, all while maintaining a bleak, cool-toned palette.",
+      "prompt": "2.5D stylized render, cinematic quality. A pregnant deer, depicted with a sleek, somewhat angular but organic design, is writhing in distress. From its hindquarters, a contorted human torso and head are pushing through, rendered with detailed but stylized musculature and slightly exaggerated features. Dynamic, moody lighting casts long shadows. Cool, desaturated blues and greys dominate, with subtle highlights on the wet, emerging form. Focus on dramatic composition and unsettling body horror without being overtly gory.",
+      "appearance_seeds": [
+        "Sleek, angular deer body",
+        "Smooth, almost porcelain-like human skin",
+        "Dynamic, flowing biological discharge",
+        "Intensely vacant, stylized human eyes",
+        "Exaggerated, sinewy human musculature"
+      ]
+    },
+    {
+      "id": "C",
+      "description": "A bold, graphic 2D illustration style with clean lines, a limited and stark color palette, and strong silhouettes. Focuses on impactful compositions and the unsettling nature of the scene through abstract forms and minimal detail, evoking a sense of dread and clinical horror.",
+      "prompt": "2D flat illustration, minimalist style, vector art aesthetic. A silhouette of a deer, distorted and elongated, with stark white or pale grey human-like forms emerging from its rear. Use a limited color palette: deep blues, cool greys, and a muted, unsettling crimson or pale fleshy tone for the emerging entity. Strong, clean lines and shapes. No gradients or complex textures. The composition should be stark and unsettling, emphasizing the unnatural emergence with graphic impact.",
+      "appearance_seeds": [
+        "Geometric, minimalist deer shape",
+        "Flat, unshaded pale human limbs",
+        "Graphic, solid color pools of fluid",
+        "Abstract, unsettling eye marks",
+        "Simple, blocky fleshy forms"
+      ]
+    }
+  ]
+}
