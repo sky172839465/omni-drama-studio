@@ -1,0 +1,83 @@
+{
+  "title": "SCP-8805: The Pennsylvania Sixteen",
+  "acts": [
+    {
+      "act_number": 1,
+      "clips": [
+        {
+          "timestamp": "00:00",
+          "duration": 6,
+          "visual_description": "Close-up on a flickering, old-school computer monitor displaying rapidly scrolling text in Chinese, then English. The text cycles through database queries like 'YOU ARE QUERYING: ORGANIZATION OF INTEREST', 'MOBILE TASK FORCE', 'FOUNDATION FACILITIES', 'PERSONNEL FILES'. There are subtle glitches and pixelation on the screen.",
+          "dialogue": "Multiple records found. Select data source.",
+          "sound_vibe": "Low, digital hum with data processing sounds. Subtle synth arpeggios create a sense of an unseen, vast system. Clinical and slightly unsettling.",
+          "key_object": "Computer screen with scrolling text"
+        },
+        {
+          "timestamp": "00:06",
+          "duration": 6,
+          "visual_description": "The scene shifts to grainy, black and white, night-vision thermal camera footage. A heavily pregnant deer, unnaturally large and bulging, enters a dense, dark forest clearing. It paces nervously, hooves crunching on unseen dry leaves. Its breath plumes slightly in the cold air. The camera shakes slightly, simulating a remote tracker.",
+          "dialogue": "SCP-8805. Euclid. Tracked in ███ █████ Forest.",
+          "sound_vibe": "Ominous, deep forest ambient sounds, distant rustling. A low, sustained drone with a sense of growing unease. Heavy, slow percussive thumps begin.",
+          "key_object": "Pregnant deer"
+        },
+        {
+          "timestamp": "00:12",
+          "duration": 6,
+          "visual_description": "Continuing from the previous shot, the deer collapses onto the forest floor, its front legs buckling. Its hindquarters visibly convulse, a thick, dark fluid begins to trickle from between its legs onto the damp leaves. The camera zooms slightly, showing its labored breathing and strained muscles.",
+          "dialogue": "Unexplained disappearances. Sixteen victims.",
+          "sound_vibe": "Guttural, strained animal sounds (deer panting/groaning). Wet squelching sounds accompany the trickle. Escalating dissonant strings build tension.",
+          "key_object": "Deer's hindquarters and fluid"
+        },
+        {
+          "timestamp": "00:18",
+          "duration": 6,
+          "visual_description": "An extreme close-up on the deer's dilated vaginal opening. A pale, distinctly human-shaped object, wet and slick with fluid, slowly begins to protrude. It is clearly not a fawn. The deer's muscles ripple violently with effort.",
+          "dialogue": "Two bodies recovered. Cause of death, unknown.",
+          "sound_vibe": "Intense, high-pitched scraping and tearing sounds mixed with wet, organic squishes. A rapid, unsettling pizzicato plays in the background.",
+          "key_object": "Emerging human-like object"
+        },
+        {
+          "timestamp": "00:24",
+          "duration": 6,
+          "visual_description": "Mid-shot. The deer's entire hindquarters are now grotesquely distended, almost twice their normal size. A full human head, pale and lifeless, with matted hair, is fully visible, followed by shoulders, slowly pushing out. The deer's eyes are wide, glassy, showing no sign of pain, only an unnerving vacancy. Amniotic fluid drips profusely.",
+          "dialogue": "",
+          "sound_vibe": "Gurgling and tearing sounds, amplified wet thuds. A low, sustained, guttural rumble intensifies, becoming more prominent.",
+          "key_object": "Human head emerging from deer"
+        },
+        {
+          "timestamp": "00:30",
+          "duration": 6,
+          "visual_description": "The deer struggles to its feet, still grotesquely distended. As it lurches, two human arms, unnaturally long and pale, flop out from its rear, dangling limply. The human torso is half-emerged, caught by gravity, swaying with the deer's movement. The deer appears to be trying to dislodge it.",
+          "dialogue": "",
+          "sound_vibe": "Cracking bone-like sounds mixed with more wet squelches. The guttural rumble builds in intensity, now accompanied by a subtle, deep, reverberating pulse.",
+          "key_object": "Human arms and torso"
+        },
+        {
+          "timestamp": "00:36",
+          "duration": 6,
+          "visual_description": "A wide shot of the deer, still standing, convulsing violently. With a final, powerful contraction, the entire human corpse, limp and bloodied, drops heavily to the forest floor. The deer's hindquarters immediately snap back to their normal, natural size, as if nothing happened. The body lies prone on the ground.",
+          "dialogue": "",
+          "sound_vibe": "A sickening, heavy thud as the body drops. The sound of rapid, organic contraction. This is followed by an abrupt, chilling silence, broken only by faint, distant forest sounds.",
+          "key_object": "Human corpse dropping"
+        },
+        {
+          "timestamp": "00:42",
+          "duration": 6,
+          "visual_description": "The deer stands motionless, staring blankly at the corpse of Oliver Campbell on the ground for a silent beat. Its expression is unreadable. Then, without a sound, it abruptly turns and bolts into the dense, dark woods, disappearing in seconds. The grainy camera lingers on the lifeless corpse on the forest floor.",
+          "dialogue": "Oliver Campbell. Identity confirmed.",
+          "sound_vibe": "Eerie silence after the deer's departure, then a sudden, rapid rustling as it flees. Followed by lingering, isolated, melancholic piano notes that evoke deep sorrow and mystery.",
+          "key_object": "Oliver Campbell's corpse"
+        },
+        {
+          "timestamp": "00:48",
+          "duration": 6,
+          "visual_description": "The grainy surveillance footage flickers rapidly, then cuts to a black screen with stark white text: 'PROJECT 8805: PENNSYLVANIA SIXTEEN MISSING.' Below, in smaller text, it reads: 'CLASSIFIED. EYES ONLY.' A faint, red warning light pulses intermittently in the lower right corner of the screen.",
+          "dialogue": "",
+          "sound_vibe": "A final, deep, resonating bass note slowly fades out. A subtle, high-frequency static undertone persists. The digital hum from the opening clip returns, but now more distant and distorted, leaving a lingering sense of unease.",
+          "key_object": "Black screen with classified text"
+        }
+      ]
+    }
+  ],
+  "global_mood": "Bleak, clinical, unsettling, gradually shifting to body horror and dread. Visuals feature desaturated colors, cool tones, and high contrast in dark scenes, emphasizing the mystery and horror."
+}
