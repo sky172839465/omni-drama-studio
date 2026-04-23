@@ -2,7 +2,7 @@
 
 ## Act 1
 - [x] Generate Images for Clip 1: Computer screen with scrolling text (6s)
-- [ ] Generate Video for Clip 1: Computer screen with scrolling text (6s)
+- [x] Generate Video for Clip 1: Computer screen with scrolling text (6s)
 - [ ] Generate Images for Clip 2: Pregnant deer (6s)
 - [ ] Generate Video for Clip 2: Pregnant deer (6s)
 - [ ] Generate Images for Clip 3: Deer's hindquarters and fluid (6s)
