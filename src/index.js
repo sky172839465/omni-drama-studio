@@ -28,7 +28,7 @@ async function main() {
             let allClipsDone = true;
             let j = i - 1;
             while (j >= 0 && lines[j].startsWith("- [")) {
-                if (lines[j].startsWith("- [ ] Generate Images for Clip") || lines[j].startsWith("- [ ] Generate Video for Clip")) {
+                if (lines[j].startsWith("- [ ] Clip")) {
                     allClipsDone = false;
                     break;
                 }
