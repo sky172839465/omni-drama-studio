@@ -1,7 +1,7 @@
 # Story: SCP-8805: The Pennsylvania Sixteen (scp-zh-tr)
 
 ## Act 1
-- [ ] Generate Images for Clip 1: Computer screen with scrolling text (6s)
+- [x] Generate Images for Clip 1: Computer screen with scrolling text (6s)
 - [ ] Generate Video for Clip 1: Computer screen with scrolling text (6s)
 - [ ] Generate Images for Clip 2: Pregnant deer (6s)
 - [ ] Generate Video for Clip 2: Pregnant deer (6s)
