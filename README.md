@@ -34,7 +34,7 @@ graph TD
     *   提供三種視覺概念（A/B/C）供使用者選擇。
     *   提取 5 個核心外觀特徵（Appearance Seeds）以確保視覺一致性。
 3.  **階段 3 (生產製作 - Director & Audio Tech)**:
-    *   **導演 (Director)**: 使用 Imagen 4.0 (imagen-4.0-generate-001) 先行為每個片段生成首尾關鍵影格，接著使用 Veo 2.0 (veo-2.0-generate-001) 以首尾影格生成影片，確保片段間的完美連續性。
+    *   **導演 (Director)**: 使用 Veo 3.1 Lite 序列生成影片，傳遞上一幀以維持連續性。
     *   **音效師 (Audio Tech)**: 使用 Lyria 3 產生長篇背景音樂與特定音效。
 4.  **階段 4 (交付階段 - Editor)**:
     *   進行分段合併（Sub-Editing）與最終合併（Final-Editing）。
@@ -57,8 +57,7 @@ graph TD
 *   **Cloud Storage**: Cloudflare R2
 *   **AI Models**:
     *   **Logic/Script**: Gemini 1.5 Pro
-    *   **Image**: Imagen 4.0
-    *   **Video**: Veo 2.0
+    *   **Video**: Veo 3.1 Lite
     *   **Audio**: Lyria 3
 *   **Crawler**: agent-browser
 

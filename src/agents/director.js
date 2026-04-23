@@ -1,97 +1,42 @@
-import { uploadToR2, downloadFromR2 } from "../utils/r2.js";
+import { uploadToR2, downloadFromR2, getSignedUrlForR2 } from "../utils/r2.js";
+import { askGemini } from "../utils/gemini.js";
 import fs from "fs/promises";
 import path from "path";
 import { GoogleGenAI } from "@google/genai";
+import { exec } from "child_process";
+import { promisify } from "util";
 import os from "os";
 
+const execPromise = promisify(exec);
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
-async function _downloadBase64(key) {
-  const res = await downloadFromR2(key);
-  const arrayBuffer = await res.transformToByteArray();
-  return Buffer.from(arrayBuffer).toString("base64");
-}
-
-export async function generateImages(storyId, actNumber, clipIndex, scriptClip, config, startFrameKey) {
-  console.log(`Generating Images for Act ${actNumber} Clip ${clipIndex} for ${storyId}`);
-
-  const appearancePrompt = config.appearance_seeds.join(", ");
-  const basePrompt = `${config.global_mood}. ${scriptClip.visual_description}. Featuring: ${scriptClip.key_object}. Appearance traits: ${appearancePrompt}. Cinematic.`;
-
-  const endFrameKey = `drama/${storyId}/frames/act_${actNumber}_frame_${clipIndex}_end.png`;
-
-  // Always generate end image
-  console.log(`Generating End Image with prompt: End of the action: ${basePrompt}`);
-  const endImageResponse = await ai.models.generateImages({
-    model: 'imagen-4.0-generate-001',
-    prompt: `End of the action: ${basePrompt}`,
-    config: {
-      numberOfImages: 1,
-      aspectRatio: "16:9",
-      outputMimeType: "image/png"
-    }
-  });
-
-  const endImageBase64 = endImageResponse.generatedImages[0].image.imageBytes;
-  await uploadToR2(endFrameKey, Buffer.from(endImageBase64, 'base64'), "image/png");
-
-  // If startFrameKey is provided, we only generated the end image.
-  // Otherwise, we also need to generate the start image (typically for Clip 1 of Act 1)
-  if (!startFrameKey) {
-    console.log(`Generating Start Image with prompt: Start of the action: ${basePrompt}`);
-    const startImageResponse = await ai.models.generateImages({
-      model: 'imagen-4.0-generate-001',
-      prompt: `Start of the action: ${basePrompt}`,
-      config: {
-        numberOfImages: 1,
-        aspectRatio: "16:9",
-        outputMimeType: "image/png"
-      }
-    });
-
-    const startImageBase64 = startImageResponse.generatedImages[0].image.imageBytes;
-    const initialStartFrameKey = `drama/${storyId}/frames/act_${actNumber}_frame_${clipIndex}_start.png`;
-    await uploadToR2(initialStartFrameKey, Buffer.from(startImageBase64, 'base64'), "image/png");
-    return { startFrameKey: initialStartFrameKey, endFrameKey };
-  }
-
-  return { startFrameKey, endFrameKey };
-}
-
-export async function generateVideoClip(storyId, actNumber, clipIndex, scriptClip, config, startFrameKey, endFrameKey) {
-  console.log(`Generating Video Act ${actNumber} Clip ${clipIndex} for ${storyId}`);
+export async function generateClip(storyId, actNumber, clipIndex, scriptClip, config, lastFrameKey) {
+  console.log(`Generating Act ${actNumber} Clip ${clipIndex} for ${storyId}`);
 
   const appearancePrompt = config.appearance_seeds.join(", ");
   const fullPrompt = `${config.global_mood}. ${scriptClip.visual_description}. Featuring: ${scriptClip.key_object}. Appearance traits: ${appearancePrompt}. Cinematic.`;
 
   const clipKey = `drama/${storyId}/clips/act_${actNumber}_clip_${clipIndex}.mp4`;
+  const nextFrameKey = `drama/${storyId}/frames/act_${actNumber}_frame_${clipIndex}.png`;
 
-  console.log(`Video Prompt: ${fullPrompt}`);
-
-  const startBase64 = await _downloadBase64(startFrameKey);
-  const endBase64 = await _downloadBase64(endFrameKey);
+  console.log(`Prompt: ${fullPrompt}`);
 
   let generateArgs = {
-    model: "veo-2.0-generate-001",
+    model: "veo-3.1-lite-generate-preview",
     prompt: fullPrompt,
-    // Provide both start and end frames
-    inputFrames: [
-      {
-        id: "frame0",
-        image: {
-            mimeType: "image/png",
-            imageBytes: startBase64
-        }
-      },
-      {
-        id: "frame1",
-        image: {
-            mimeType: "image/png",
-            imageBytes: endBase64
-        }
-      }
-    ]
   };
+
+  if (lastFrameKey) {
+    console.log(`Using last frame from ${lastFrameKey}`);
+    const lastFrameRes = await downloadFromR2(lastFrameKey);
+    const arrayBuffer = await lastFrameRes.transformToByteArray();
+    const base64 = Buffer.from(arrayBuffer).toString("base64");
+    // Convert Buffer to Uint8Array for the image parameter
+    generateArgs.image = {
+      mimeType: "image/png",
+      imageBytes: base64
+    };
+  }
 
   let operation = await ai.models.generateVideos(generateArgs);
 
@@ -114,9 +59,19 @@ export async function generateVideoClip(storyId, actNumber, clipIndex, scriptCli
   const videoBuffer = await fs.readFile(tmpVideoPath);
   await uploadToR2(clipKey, videoBuffer, "video/mp4");
 
-  await fs.unlink(tmpVideoPath);
+  // Extract last frame for next generation
+  const tmpFramePath = path.join(os.tmpdir(), `act_${actNumber}_frame_${clipIndex}.png`);
+  // -sseof -0.1 seeks to end of file minus 0.1 seconds, -vframes 1 gets 1 frame
+  await execPromise(`ffmpeg -sseof -0.1 -i "${tmpVideoPath}" -update 1 -q:v 1 "${tmpFramePath}" -y`);
 
-  return { clipKey };
+  const frameBuffer = await fs.readFile(tmpFramePath);
+  await uploadToR2(nextFrameKey, frameBuffer, "image/png");
+
+  // Cleanup tmp files
+  await fs.unlink(tmpVideoPath);
+  await fs.unlink(tmpFramePath);
+
+  return { clipKey, nextFrameKey };
 }
 
 export async function runDirector(storyId) {
@@ -133,7 +88,6 @@ export async function runDirector(storyId) {
   let targetClipIdx = -1;
   let targetLineIdx = -1;
   let currentActNum = 0;
-  let actionType = null; // 'images' or 'video'
 
   for (let i = 0; i < lines.length; i++) {
     const actHeader = lines[i].match(/## Act (\d+)/);
@@ -141,19 +95,11 @@ export async function runDirector(storyId) {
       currentActNum = parseInt(actHeader[1]);
     }
 
-    if (lines[i].startsWith("- [ ] Generate Images for Clip")) {
+    if (lines[i].startsWith("- [ ] Clip")) {
       const clipMatch = lines[i].match(/Clip (\d+):/);
       targetClipIdx = parseInt(clipMatch[1]);
       targetActNum = currentActNum;
       targetLineIdx = i;
-      actionType = 'images';
-      break;
-    } else if (lines[i].startsWith("- [ ] Generate Video for Clip")) {
-      const clipMatch = lines[i].match(/Clip (\d+):/);
-      targetClipIdx = parseInt(clipMatch[1]);
-      targetActNum = currentActNum;
-      targetLineIdx = i;
-      actionType = 'video';
       break;
     }
   }
@@ -162,32 +108,23 @@ export async function runDirector(storyId) {
     return { done: true };
   }
 
+  // Find specific clip in script data
   const act = script.acts.find(a => a.act_number === targetActNum);
   const clip = act.clips[targetClipIdx - 1];
 
-  let startFrameKey = null;
-
+  let lastFrameKey = null;
   if (targetClipIdx > 1) {
-    // The previous clip's end frame is this clip's start frame
-    startFrameKey = `drama/${storyId}/frames/act_${targetActNum}_frame_${targetClipIdx - 1}_end.png`;
+    lastFrameKey = `drama/${storyId}/frames/act_${targetActNum}_frame_${targetClipIdx - 1}.png`;
   } else if (targetActNum > 1) {
-    // The previous act's last clip's end frame is this clip's start frame
+    // Get last frame of last clip of previous act
     const prevAct = script.acts.find(a => a.act_number === targetActNum - 1);
-    startFrameKey = `drama/${storyId}/frames/act_${targetActNum - 1}_frame_${prevAct.clips.length}_end.png`;
-  } else if (actionType === 'video') {
-    // Clip 1 of Act 1 has a special start frame explicitly generated
-    startFrameKey = `drama/${storyId}/frames/act_${targetActNum}_frame_${targetClipIdx}_start.png`;
+    lastFrameKey = `drama/${storyId}/frames/act_${targetActNum - 1}_frame_${prevAct.clips.length}.png`;
   }
 
-  if (actionType === 'images') {
-    await generateImages(storyId, targetActNum, targetClipIdx, clip, config, startFrameKey);
-  } else if (actionType === 'video') {
-    const endFrameKey = `drama/${storyId}/frames/act_${targetActNum}_frame_${targetClipIdx}_end.png`;
-    await generateVideoClip(storyId, targetActNum, targetClipIdx, clip, config, startFrameKey, endFrameKey);
-  }
+  await generateClip(storyId, targetActNum, targetClipIdx, clip, config, lastFrameKey);
 
   lines[targetLineIdx] = lines[targetLineIdx].replace("- [ ]", "- [x]");
   await fs.writeFile(checklistPath, lines.join("\n"));
 
-  return { done: false, nextAct: targetActNum, nextClip: targetClipIdx };
+  return { done: false, nextAct: targetActNum, nextClip: targetClipIdx + 1 };
 }

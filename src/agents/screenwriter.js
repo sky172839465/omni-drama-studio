@@ -148,8 +148,7 @@ export async function runScreenwriter(url, maximumVideoDuration = "5") {
   script.acts.forEach(act => {
     checklist += `## Act ${act.act_number}\n`;
     act.clips.forEach((clip, index) => {
-      checklist += `- [ ] Generate Images for Clip ${index + 1}: ${clip.key_object} (${clip.duration}s)\n`;
-      checklist += `- [ ] Generate Video for Clip ${index + 1}: ${clip.key_object} (${clip.duration}s)\n`;
+      checklist += `- [ ] Clip ${index + 1}: ${clip.key_object} (${clip.duration}s) - ${clip.visual_description.substring(0, 50)}...\n`;
     });
     checklist += `- [ ] Sub-Edit Act ${act.act_number}\n\n`;
   });
