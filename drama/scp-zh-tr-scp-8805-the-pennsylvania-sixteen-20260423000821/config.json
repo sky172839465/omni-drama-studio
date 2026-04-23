@@ -1,0 +1,13 @@
+{
+  "id": "A",
+  "description": "A gritty, hyper-realistic visual style, as if captured by a security camera or documentary footage. Emphasizes fine detail, naturalistic lighting, and a desaturated, cool-toned color palette to enhance the clinical dread and body horror.",
+  "prompt": "Photorealistic image of a pregnant deer's hindquarters as a pale, glistening human hand and forearm begin to emerge from the birth canal. The scene is set in a dimly lit, stark white laboratory environment. Focus on extreme detail: visible pores on the skin, matted fur, viscous dark fluids, and the strained, pained expression of the deer. Desaturated colors with high contrast in shadows. Ultra-realistic, unsettling, body horror.",
+  "appearance_seeds": [
+    "Matted, coarse deer fur",
+    "Glistening, pallid human skin",
+    "Thick, viscous, dark fluids",
+    "Strained, agonized deer expression",
+    "Distorted, unnatural human anatomy"
+  ],
+  "global_mood": "Bleak, clinical, unsettling, gradually shifting to body horror and dread. Visuals feature desaturated colors, cool tones, and high contrast in dark scenes, emphasizing the mystery and horror."
+}
